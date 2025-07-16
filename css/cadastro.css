@@ -10,7 +10,7 @@
 }
 
 #formulario {
-  background-image: url("https://t3.ftcdn.net/jpg/01/36/25/58/360_F_136255856_XGPHT6zyNJay48Dprr0bTVYb4XlUuSaI.jpg");
+  background-color: #00000067;
   border: 1.5px solid var(--cor-principal);
   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.6);
   border-radius: 1rem;
