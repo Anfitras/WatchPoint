@@ -1,0 +1,319 @@
+@charset "UTF-8";
+
+:root {
+  --cor-principal: #9c070e;
+  --cor-shadow: #00000080;
+  --cor-destaque: #fff;
+  --cor-texto: #fff;
+  --cor-bg: #0a0a0a;
+  --cor-hover: #350101;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1rem;
+  color: var(--cor-texto);
+  background-color: var(--cor-bg);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#navegador {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--cor-principal);
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+#nav-esquerda,
+#nav-centro,
+#nav-direita {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+}
+
+#nav-esquerda {
+  gap: 2.5rem;
+}
+
+#logo {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  margin-left: -1rem;
+  margin-right: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.3rem;
+}
+
+#menu-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-drop {
+  display: none;
+}
+
+.menu-drop:checked + .menu-texto + .menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-texto {
+  background-color: transparent;
+  color: var(--cor-texto);
+  font-size: 1.5em;
+  padding: 0.3rem 0.6rem 0.4rem 0.6rem;
+  margin-left: -1.5rem;
+  cursor: pointer;
+  border-radius: 0.75rem;
+}
+
+.menu-texto:hover {
+  background-color: var(--cor-hover);
+}
+
+nav {
+  background-color: var(--cor-principal);
+  text-align: center;
+  padding: 0;
+}
+
+.nav a {
+  color: var(--cor-texto);
+  text-shadow: 0.06rem 0.06rem 0.12rem var(--cor-shadow);
+  font-weight: bold;
+  font-size: 1.1em;
+  text-decoration: none;
+  padding: 0.75rem;
+  margin-right: 3rem;
+  display: inline-block;
+}
+
+.nav a:hover {
+  background-color: var(--cor-hover);
+  border-radius: 0.75rem;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0.6rem;
+  display: none;
+  flex-direction: column;
+  background-color: var(--cor-bg);
+  width: 7.5rem;
+  padding: 0.6rem;
+  margin: 0.3rem 0 0 -2.4rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  border-radius: 0.4rem;
+}
+
+.menu a {
+  color: var(--cor-texto);
+  text-shadow: 0.06rem 0.06rem 0.12rem var(--cor-shadow);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.9rem 1.2rem;
+  display: inline-block;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.separador {
+  width: 0.12rem;
+  height: 2.5rem;
+  background-color: black;
+  opacity: 0.3;
+}
+
+#nav-centro {
+  flex: 1;
+  justify-content: center;
+}
+
+.pesquisa input {
+  color: black;
+  background-color: white;
+  border: 1.5px solid darkslategray;
+  border-radius: 0.25rem;
+  padding: 0.4rem 0.6rem;
+  margin-left: 5rem;
+  width: 25rem;
+  max-width: 25rem;
+  height: 1.4rem;
+}
+
+.pesquisa input:focus {
+  outline: none;
+  border: 1.5px solid var(--cor-principal);
+}
+
+#titulo_principal {
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(1.5rem, 4vw, 2.4em);
+  text-align: center;
+  margin: 2.5rem 0 2rem;
+  color: var(--cor-texto);
+  background: linear-gradient(to right, #1e1e1e, var(--cor-principal), #1e1e1e);
+  padding: 0.6rem 0;
+  box-shadow: 0 0 0.6rem var(--cor-hover);
+}
+
+footer {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  text-shadow: 0.06rem 0.06rem 0.12rem var(--cor-shadow);
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: auto;
+  padding-bottom: 0.6rem;
+}
+@media (max-width: 900px) {
+  #navegador {
+    padding: 0.2rem 0.2rem;
+    gap: 0.3rem;
+  }
+  #nav-esquerda,
+  #nav-centro,
+  #nav-direita {
+    gap: 0.5rem;
+  }
+  #nav-esquerda {
+    gap: 1.0rem;
+  }
+  #logo {
+    margin-left: -0.5rem;
+    margin-right: 0.3rem;
+    border-radius: 0.15rem;
+  }
+  .menu-texto {
+    font-size: 1.2em;
+    padding: 0.15rem 0.3rem 0.2rem 0.3rem;
+    margin-left: -0.7rem;
+    border-radius: 0.3rem;
+  }
+  .nav a {
+    font-size: 1em;
+    padding: 0.4rem;
+    margin-right: 1.2rem;
+    border-radius: 0.3rem;
+  }
+  .menu {
+    left: 0.3rem;
+    width: 5rem;
+    padding: 0.3rem;
+    margin: 0.15rem 0 0 -1.2rem;
+    border-radius: 0.2rem;
+  }
+  .menu a {
+    padding: 0.5rem 0.7rem;
+  }
+  .separador {
+    width: 0.07rem;
+    height: 1.2rem;
+  }
+  .pesquisa input {
+    margin-left: 2rem;
+    width: 12rem;
+    max-width: 12rem;
+    height: 0.8rem;
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.12rem;
+  }
+  #titulo_principal {
+    font-size: clamp(1rem, 2vw, 1.5em);
+    margin: 1.2rem 0 1rem;
+    padding: 0.3rem 0;
+    box-shadow: 0 0 0.3rem var(--cor-hover);
+  }
+  footer {
+    font-size: 0.8em;
+    padding-bottom: 0.3rem;
+  }
+}
+@media (max-width: 600px) {
+  #navegador {
+    padding: 0.1rem 0.1rem;
+    gap: 0.1rem;
+  }
+  #nav-esquerda,
+  #nav-centro,
+  #nav-direita {
+    gap: 0.2rem;
+  }
+  #nav-esquerda {
+    gap: 0.4rem;
+  }
+  #logo {
+    margin-left: -0.2rem;
+    margin-right: 0.1rem;
+    border-radius: 0.05rem;
+  }
+  .menu-texto {
+    font-size: 1em;
+    padding: 0.05rem 0.1rem 0.08rem 0.1rem;
+    margin-left: -0.2rem;
+    border-radius: 0.08rem;
+  }
+  .nav a {
+    font-size: 0.95em;
+    padding: 0.15rem;
+    margin-right: 0.3rem;
+    border-radius: 0.08rem;
+  }
+  .menu {
+    left: 0.08rem;
+    width: 2.5rem;
+    padding: 0.08rem;
+    margin: 0.05rem 0 0 -0.3rem;
+    border-radius: 0.05rem;
+  }
+  .menu a {
+    padding: 0.2rem 0.3rem;
+  }
+  .separador {
+    width: 0.03rem;
+    height: 0.4rem;
+  }
+  .pesquisa input {
+    margin-left: 0.5rem;
+    width: 5rem;
+    max-width: 5rem;
+    height: 0.4rem;
+    padding: 0.08rem 0.12rem;
+    border-radius: 0.05rem;
+  }
+  #titulo_principal {
+    font-size: 1em;
+    margin: 0.5rem 0 0.3rem;
+    padding: 0.1rem 0;
+    box-shadow: 0 0 0.1rem var(--cor-hover);
+  }
+  footer {
+    font-size: 0.7em;
+    padding-bottom: 0.1rem;
+  }
+}
+
+footer .social a {
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+footer .social a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Acompanhe episódios de séries e animes, avalie filmes e séries, e organize suas notas para não perder o que já assistiu."
+    />
+    <meta
+      name="keywords"
+      content="filmes, séries, animes, marcar, episódios, novos episódios, lista, myanimelist"
+    />
+    <meta name="author" content="Arthur Beraldo" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pag-gerais.css" />
+    <link
+      rel="shortcut icon"
+      href="../img-gerais/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>WatchPoint - Filmes</title>
+  </head>
+
+  <body>
+    <header id="navegador">
+      <div id="nav-esquerda">
+        <div id="logo">
+          <img src="../img-gerais/logo_watchpoint.png" alt="Logo WatchPoint" />
+        </div>
+        <div id="menu-wrapper">
+          <input type="checkbox" id="menu-drop" class="menu-drop" />
+          <label for="menu-drop" class="menu-texto">&#9776; Menu</label>
+          <nav class="menu">
+            <a href="../index.html">Home</a>
+            <a href="animes.html">Animes</a>
+            <a href="series.html">Séries</a>
+            <a href="filmes.html">Filmes</a>
+            <a href="../historia.html">História</a>
+          </nav>
+        </div>
+        <div class="separador"></div>
+      </div>
+
+      <div id="nav-centro">
+        <form class="pesquisa">
+          <label for="pesquisa-inline" style="display: none">Pesquisar</label>
+          <input
+            type="text"
+            id="pesquisa-inline"
+            placeholder="🔍︎ Buscar título..."
+          />
+        </form>
+      </div>
+
+      <div id="nav-direita">
+        <nav class="separador"></nav>
+        <nav class="nav">
+          <a href="../crud.html">Cadastro</a>
+          <a href="../biblioteca.html">Biblioteca</a>
+          <a href="../login.html">Login</a>
+        </nav>
+        <nav
+          class="separador"
+          style="margin-left: -50px; background-color: transparent"
+        ></nav>
+      </div>
+    </header>
+
+    <h1 id="titulo_principal">FILMES</h1>
+
+    <main>
+      <section class="carrossel-container">
+        <img
+          id="carrossel-bg"
+          src="../banners_horizontal/filmes/clube_da_luta.jpg"
+          alt="Fundo"
+        />
+        <div class="carrossel-overlay">
+          <img
+            id="carrossel-poster"
+            src="../banners/filmes/clube_da_luta.jpeg"
+            alt="Poster"
+          />
+          <div class="carrossel-info">
+            <div id="carrossel-title" class="title">Clube da Luta</div>
+            <div id="carrossel-rating" class="rating">⭐ 8.8</div>
+          </div>
+        </div>
+        <div class="arrow left" onclick="prevFilme()">&#10094;</div>
+        <div class="arrow right" onclick="nextFilme()">&#10095;</div>
+      </section>
+
+      <hr class="linha" />
+
+      <section class="container-galeria">
+        <div class="poster">
+          <a href="../pag-filmes/cidade_de_deus.html"
+            ><img src="../banners/filmes/cidade_de_deus.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/cidade_de_deus.html">Cidade de Deus</a>
+          </div>
+          <div class="nota">⭐ 8.6</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/homem_aranha_3.html"
+            ><img src="../banners/filmes/homem_aranha_3.jpeg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/homem_aranha_3.html">Homem Aranha 3</a>
+          </div>
+          <div class="nota">⭐ 6.3</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/o_iluminado.html"
+            ><img src="../banners/filmes/o_iluminado.jpeg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/o_iluminado.html">O Iluminado</a>
+          </div>
+          <div class="nota">⭐ 8.4</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/os_vingadores.html"
+            ><img src="../banners/filmes/os_vingadores.jpeg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/os_vingadores.html">Os Vingadores</a>
+          </div>
+          <div class="nota">⭐ 8.0</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/vingadores_ultimato.html"
+            ><img src="../banners/filmes/vingadores_ultimato.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/vingadores_ultimato.html"
+              >Vigadores: Ultimato</a
+            >
+          </div>
+          <div class="nota">⭐ 8.4</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/parasite.html"
+            ><img src="../banners/filmes/parasite.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/parasite.html">Parasita</a>
+          </div>
+          <div class="nota">⭐ 8.1</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/titanic.html"
+            ><img src="../banners/filmes/titanic.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/titanic.html">Titanic</a>
+          </div>
+          <div class="nota">⭐ 7.9</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/interestelar.html"
+            ><img src="../banners/filmes/interestelar.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/interestelar.html">Interestelar</a>
+          </div>
+          <div class="nota">⭐ 8.7</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/gladiador.html"
+            ><img src="../banners/filmes/gladiador.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/gladiador.html">Gladiador</a>
+          </div>
+          <div class="nota">⭐ 8.5</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/up.html"
+            ><img src="../banners/filmes/up.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/up.html">Up: Altas Aventuras</a>
+          </div>
+          <div class="nota">⭐ 8.3</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/oppenheimer.html"
+            ><img src="../banners/filmes/oppenheimer.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-fimes/oppenheimer.html">Oppenheimer</a>
+          </div>
+          <div class="nota">⭐ 8.3</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/ratatouille.html"
+            ><img src="../banners/filmes/ratatouille.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/ratatouille.html">Ratatouille</a>
+          </div>
+          <div class="nota">⭐ 8.5</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/tubarao.html"
+            ><img src="../banners/filmes/tubarao.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/tubarao.html">Tubarão</a>
+          </div>
+          <div class="nota">⭐ 8.7</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/logan.html"
+            ><img src="../banners/filmes/logan.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/logan.html">Logan</a>
+          </div>
+          <div class="nota">⭐ 8.6</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/avatar.html"
+            ><img src="../banners/filmes/avatar.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/avatar.html">Avatar</a>
+          </div>
+          <div class="nota">⭐ 7.9</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/aranhaverso.html"
+            ><img src="../banners/filmes/aranhaverso.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/aranhaverso.html">Aranhaverso</a>
+          </div>
+          <div class="nota">⭐ 8.4</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/jurassic_park.html"
+            ><img src="../banners/filmes/jurassic_park.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/jurassic_park.html">Jurassic Park</a>
+          </div>
+          <div class="nota">⭐ 8.2</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-filmes/minecraft.html"
+            ><img src="../banners/filmes/minecraft.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-filmes/minecraft.html">Minecraft</a>
+          </div>
+          <div class="nota">⭐ 5.7</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 WatchPoint. Todos os direitos reservados.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/_anfitras" target="_blank"
+          >Instagram</a
+        >
+        | <a href="https://github.com/Anfitras">GitHub</a> |
+        <a href="mailto:arthur.beraldo@alunos.ifsuldeminas.edu.br">Contato</a>
+      </div>
+    </footer>
+
+    <script>
+      const filmes = [
+        {
+          titulo: "Senhor dos Anéis: O Retorno do Rei",
+          poster: "../banners/filmes/retorno_do_rei.jpg",
+          fundo: "../banners_horizontal/filmes/retorno_do_rei.jpg",
+          nota: "⭐ 9.0",
+        },
+        {
+          titulo: "O Poderoso Chefão",
+          poster: "../banners/filmes/o_poderoso_chefao.jpg",
+          fundo: "../banners_horizontal/filmes/o_poderoso_chefao.jpg",
+          nota: "⭐ 9.2",
+        },
+        {
+          titulo: "Batman: O Cavaleiro das Trevas",
+          poster: "../banners/filmes/cavaleiro_das_trevas.jpeg",
+          fundo: "../banners_horizontal/filmes/cavaleiro_das_trevas.jpg",
+          nota: "⭐ 9.0",
+        },
+        {
+          titulo: "Clube da Luta",
+          poster: "../banners/filmes/clube_da_luta.jpeg",
+          fundo: "../banners_horizontal/filmes/clube_da_luta.jpg",
+          nota: "⭐ 8.8",
+        },
+      ];
+
+      let atual = 0;
+
+      function atualizarCarrossel() {
+        const filme = filmes[atual];
+        document.getElementById("carrossel-bg").src = filme.fundo;
+        document.getElementById("carrossel-poster").src = filme.poster;
+        document.getElementById("carrossel-title").textContent = filme.titulo;
+        document.getElementById("carrossel-rating").textContent = filme.nota;
+      }
+
+      function nextFilme() {
+        atual = (atual + 1) % filmes.length;
+        atualizarCarrossel();
+      }
+
+      function prevFilme() {
+        atual = (atual - 1 + filmes.length) % filmes.length;
+        atualizarCarrossel();
+      }
+
+      atualizarCarrossel();
+      setInterval(nextFilme, 5000);
+    </script>
+  </body>
+</html>

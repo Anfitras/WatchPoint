@@ -1,0 +1,393 @@
+@charset "UTF-8";
+
+main {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1.2rem 1.2rem 1.2rem 3.5rem;
+}
+
+#cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+}
+
+main h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--cor-destaque);
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: 0.12rem 0.12rem 0.25rem var(--cor-shadow);
+  letter-spacing: 0.06em;
+  margin-left: 0;
+}
+
+.painel-avaliacao {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  margin: 0 5rem auto 0;
+}
+
+.painel-avaliacao p {
+  font-size: 0.95em;
+  font-weight: bold;
+  margin-left: 1rem;
+  color: var(--cor-texto);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.nota-geral .valor {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: var(--cor-texto);
+  margin-top: 0.5rem;
+  text-shadow: 0.12rem 0.12rem 0.25rem var(--cor-principal);
+}
+
+.botao-padrao {
+  font-size: 1em;
+  font-weight: bold;
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  border: 2px solid var(--cor-destaque);
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  margin-top: -0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-padrao:hover {
+  background-color: var(--cor-destaque);
+  color: var(--cor-principal);
+}
+
+.conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2.5rem;
+  margin: -1.2rem auto auto auto;
+  padding: auto;
+}
+
+.conteudo .midia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.conteudo .midia .poster img {
+  max-width: 18rem;
+  width: 100%;
+  border-radius: 0.6rem;
+  box-shadow: 0.06rem 0.06rem 0.6rem var(--cor-destaque);
+}
+
+.conteudo .midia .trailer iframe {
+  width: 100vw;
+  max-width: 50rem;
+  height: 31.5vw;
+  max-height: 27rem;
+  border-radius: 0.6rem;
+  box-shadow: 0.06rem 0.06rem 0.6rem var(--cor-destaque);
+}
+
+.conteudo .genero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: -1.8rem 0 0 -0.3rem;
+}
+
+.conteudo .genero p {
+  font-size: 0.9em;
+  text-transform: capitalize;
+  text-shadow: 0.06rem 0.06rem 0.12rem var(--cor-shadow);
+  background-color: var(--cor-principal);
+  color: var(--cor-destaque);
+  border: 1px solid var(--cor-destaque);
+  border-radius: 1.2rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.conteudo .desc {
+  text-align: justify;
+  font-size: 1.1em;
+  text-shadow: 0.03rem 0.03rem 0.12rem var(--cor-shadow);
+  max-width: 62rem;
+  margin: -2.5rem auto 0 -0.12rem;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content {
+  background-color: var(--cor-bg);
+  padding: 1.5rem;
+  border-radius: 0.6rem;
+  width: 100%;
+  max-width: 31rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 0.9rem;
+  top: 0.6rem;
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--cor-destaque);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario label {
+  font-weight: bold;
+  color: #f1f1f1;
+  font-size: 1.1em;
+  margin: 1.2rem 0 0.25rem 0;
+}
+
+.formulario select,
+.formulario textarea {
+  padding: 0.6rem;
+  margin-top: 0.12rem;
+  border: 2px solid var(--cor-destaque);
+  border-radius: 0.4rem;
+  background-color: var(--cor-principal);
+  color: #ffffff;
+  resize: vertical;
+}
+
+.formulario select {
+  margin-top: -0.35rem;
+}
+
+.formulario select:focus,
+.formulario textarea:focus {
+  outline: 2px solid var(--cor-destaque);
+}
+
+textarea::placeholder {
+  color: white;
+}
+
+textarea {
+  min-height: 7.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 0.9rem;
+}
+
+.form-inline label {
+  margin-bottom: 0.3rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 12rem;
+  margin-right: 1.8rem;
+}
+@media (max-width: 900px) {
+  main {
+    max-width: 100vw;
+    padding: 0.7rem 0.7rem 0.7rem 1.2rem;
+  }
+  #cabecalho {
+    margin-bottom: 0.7rem;
+  }
+  main h1 {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  }
+  .painel-avaliacao {
+    gap: 1.2rem;
+    margin: 0 2rem auto 0;
+  }
+  .conteudo {
+    gap: 1.2rem;
+    margin: -0.7rem auto auto auto;
+  }
+  .conteudo .midia {
+    gap: 0.7rem;
+  }
+  .conteudo .midia .poster img {
+    max-width: 10rem;
+    border-radius: 0.3rem;
+  }
+  .conteudo .midia .trailer iframe {
+    width: 90vw;
+    max-width: 100vw;
+    height: 40vw;
+    max-height: 15rem;
+    border-radius: 0.3rem;
+  }
+  .conteudo .genero {
+    gap: 0.3rem;
+    margin: -0.7rem 0 0 -0.1rem;
+  }
+  .conteudo .genero p {
+    border-radius: 0.7rem;
+    padding: 0.3rem 0.5rem;
+  }
+  .conteudo .desc {
+    font-size: 1em;
+    max-width: 100vw;
+    margin: -1rem auto 0 -0.05rem;
+  }
+  .modal-content {
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+    max-width: 100vw;
+  }
+  .close {
+    right: 0.3rem;
+    top: 0.2rem;
+    font-size: 1.2rem;
+  }
+  .formulario label {
+    font-size: 1em;
+    margin: 0.7rem 0 0.15rem 0;
+  }
+  .formulario select,
+  .formulario textarea {
+    padding: 0.3rem;
+    margin-top: 0.05rem;
+    border-radius: 0.2rem;
+  }
+  .formulario select {
+    margin-top: -0.15rem;
+  }
+  textarea {
+    min-height: 4rem;
+    margin-bottom: 0.7rem;
+  }
+  .form-inline {
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .form-inline label {
+    margin-bottom: 0.1rem;
+  }
+  .form-group {
+    gap: 0.1rem;
+    min-width: 7rem;
+    margin-right: 0.7rem;
+  }
+}
+@media (max-width: 600px) {
+  main {
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+  }
+  main h1 {
+    font-size: 1rem;
+  }
+  .painel-avaliacao {
+    gap: 0.5rem;
+    margin: 0 0.5rem auto 0;
+  }
+  .conteudo {
+    gap: 0.5rem;
+    margin: -0.3rem auto auto auto;
+  }
+  .conteudo .midia {
+    gap: 0.2rem;
+  }
+  .conteudo .midia .poster img {
+    max-width: 5rem;
+    border-radius: 0.1rem;
+  }
+  .conteudo .midia .trailer iframe {
+    width: 99vw;
+    max-width: 99vw;
+    height: 20vw;
+    max-height: 7rem;
+    border-radius: 0.1rem;
+  }
+  .conteudo .genero {
+    gap: 0.1rem;
+    margin: -0.3rem 0 0 -0.05rem;
+  }
+  .conteudo .genero p {
+    border-radius: 0.3rem;
+    padding: 0.1rem 0.2rem;
+  }
+  .conteudo .desc {
+    font-size: 0.95em;
+    max-width: 99vw;
+    margin: -0.3rem auto 0 -0.02rem;
+  }
+  .modal-content {
+    padding: 0.2rem;
+    border-radius: 0.1rem;
+    max-width: 99vw;
+  }
+  .close {
+    right: 0.1rem;
+    top: 0.1rem;
+    font-size: 1rem;
+  }
+  .formulario label {
+    font-size: 0.95em;
+    margin: 0.2rem 0 0.05rem 0;
+  }
+  .formulario select,
+  .formulario textarea {
+    padding: 0.1rem;
+    margin-top: 0.02rem;
+    border-radius: 0.05rem;
+  }
+  .formulario select {
+    margin-top: -0.05rem;
+  }
+  textarea {
+    min-height: 2rem;
+    margin-bottom: 0.2rem;
+  }
+  .form-inline {
+    gap: 0.1rem;
+    margin-bottom: 0.1rem;
+  }
+  .form-inline label {
+    margin-bottom: 0.05rem;
+  }
+  .form-group {
+    gap: 0.05rem;
+    min-width: 3rem;
+    margin-right: 0.2rem;
+  }
+}

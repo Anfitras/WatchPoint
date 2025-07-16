@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Acompanhe episódios de séries e animes, avalie filmes e séries, e organize suas notas para não perder o que já assistiu."
+    />
+    <meta
+      name="keywords"
+      content="filmes, séries, animes, marcar, episódios, novos episódios, lista, myanimelist"
+    />
+    <meta name="author" content="Arthur Beraldo" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pagina-titulo-unico.css" />
+    <link rel="stylesheet" href="../css/pagina-titulo-unico(eps).css" />
+    <link
+      rel="shortcut icon"
+      href="../img-gerais/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>WatchPoint | Attack on Titan</title>
+    <style>
+      :root {
+        --cor-principal: #400d01;
+        --cor-shadow: #b3b3b5;
+        --cor-destaque: #e74c18;
+        --cor-bg: #8c3211;
+        --cor-hover: #24070a;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="navegador">
+      <div id="nav-esquerda">
+        <div id="logo">
+          <img src="../img-gerais/logo_watchpoint.png" alt="Logo WatchPoint" />
+        </div>
+        <div id="menu-wrapper">
+          <input type="checkbox" id="menu-drop" class="menu-drop" />
+          <label for="menu-drop" class="menu-texto">&#9776; Menu</label>
+          <nav class="menu">
+            <a href="../index.html">Home</a>
+            <a href="../pag-gerais/animes.html">Animes</a>
+            <a href="../pag-gerais/series.html">Séries</a>
+            <a href="../pag-gerais/filmes.html">Filmes</a>
+            <a href="../historia.html">História</a>
+          </nav>
+        </div>
+        <div class="separador"></div>
+      </div>
+
+      <div id="nav-centro">
+        <form class="pesquisa">
+          <label for="pesquisa-inline" style="display: none">Pesquisar</label>
+          <input
+            type="text"
+            id="pesquisa-inline"
+            placeholder="🔍︎ Buscar título..."
+          />
+        </form>
+      </div>
+
+      <div id="nav-direita">
+        <nav class="separador"></nav>
+        <nav class="nav">
+          <a href="../crud.html">Cadastro</a>
+          <a href="../biblioteca.html">Biblioteca</a>
+          <a href="../login.html">Login</a>
+        </nav>
+        <nav
+          class="separador"
+          style="margin-left: -50px; background-color: transparent"
+        ></nav>
+      </div>
+    </header>
+
+    <main>
+      <div id="cabecalho">
+        <h1>ATTACK ON TITAN</h1>
+
+        <div class="painel-avaliacao">
+          <div class="nota-geral">
+            <p class="label">Nota Geral</p>
+            <p class="valor">9.1 / 10</p>
+          </div>
+
+          <div class="sua-nota">
+            <p class="label">Sua Nota</p>
+            <a href="#editModal"
+              ><button
+                type="button"
+                class="botao-padrao"
+                style="padding: 7px 16px"
+              >
+                ★ Avaliar
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="conteudo">
+        <div class="midia">
+          <div class="poster">
+            <img
+              src="../banners/animes/attack_on_titan.jpeg"
+              alt="Poster do anime Attack on Titan"
+            />
+          </div>
+          <div class="trailer">
+            <iframe
+              src="https://www.youtube.com/embed/6MRxT8kz30k?si=F9NATeoBVS7biHtM"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="genero">
+          <p>Ação Épica</p>
+          <p>Animação Adulta</p>
+          <p>Terror Corporal</p>
+          <p>Terror de Monstro</p>
+          <p>Shonen</p>
+          <p>Sobrevivência</p>
+          <p>Tragédia</p>
+          <p>Ação</p>
+          <p>Aventura</p>
+        </div>
+
+        <p class="desc">
+          Depois que sua cidade natal é destruída, o jovem Eren Jaeger jura
+          limpar a Terra dos gigantes Titãs humanoides que levaram a humanidade
+          à beira da extinção.
+        </p>
+      </div>
+    </main>
+
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <a href="#" class="close">&times;</a>
+        <form action="../biblioteca.html" method="post" class="formulario">
+          <div class="form-inline">
+            <div class="form-group">
+              <label for="status">Status:</label>
+              <select name="Status" id="status" required>
+                <option value="" disabled selected hidden>
+                  Escolha um Status
+                </option>
+                <option value="assistindo">👁️ Assistindo</option>
+                <option value="assistido">✔️ Assistido</option>
+                <option value="planeja">📌 Planejo Assistir</option>
+                <option value="desistiu">❌ Desisti</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="nota">Nota:</label>
+              <select name="Nota" id="nota" required>
+                <option value="" disabled selected hidden>
+                  Escolha uma Nota
+                </option>
+                <option value="1">1 - Terrível</option>
+                <option value="2">2 - Horrível</option>
+                <option value="3">3 - Muito Ruim</option>
+                <option value="4">4 - Ruim</option>
+                <option value="5">5 - Mediano</option>
+                <option value="6">6 - Ok</option>
+                <option value="7">7 - Bom</option>
+                <option value="8">8 - Muito Bom</option>
+                <option value="9">9 - Ótimo</option>
+                <option value="10">10 - Obra de Arte</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="episodios" style="margin-bottom: -1px"
+              >Episódios Assitidos:</label
+            >
+            <div class="episodes-input">
+              <input
+                type="number"
+                id="episodios"
+                name="Episodios"
+                min="0"
+                max="98"
+                placeholder="0"
+              />
+              <span class="episodes-total">/ 98</span>
+            </div>
+          </div>
+
+          <label for="comentario">Sua Avaliação: </label>
+          <textarea
+            id="comentario"
+            name="Comentario"
+            placeholder="Escreva sua opinião sobre o anime..."
+          ></textarea>
+
+          <div>
+            <button type="submit" class="botao-padrao">Enviar Avaliação</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Watchpoint. Todos os direitos reservados.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/_anfitras" target="_blank"
+          >Instagram</a
+        >
+        | <a href="https://github.com/Anfitras">GitHub</a> |
+        <a href="mailto:arthur.beraldo@alunos.ifsuldeminas.edu.br">Contato</a>
+      </div>
+    </footer>
+  </body>
+</html>

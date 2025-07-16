@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+main {
+  margin-bottom: 2rem;
+}
+
+.sub-titulo {
+  color: var(--cor-secundaria);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  text-align: left;
+  margin: 2.5rem 0 0.6rem 2vw;
+  padding-left: 0.7rem;
+  border-left: 0.3rem solid var(--cor-principal);
+}
+
+.linha {
+  background-color: var(--cor-principal);
+  border: none;
+  height: 0.18rem;
+  width: 97%;
+  margin: 0.6rem auto 2rem;
+  border-radius: 0.12rem;
+}
+
+.container-galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 0 2vw;
+}
+
+.poster {
+  background-color: var(--cor-bg);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 13rem;
+  box-shadow: 0 0 1rem var(--cor-hover);
+}
+
+.poster:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 1.25rem var(--cor-hover);
+}
+
+.poster img {
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.desc {
+  padding: 0;
+  color: var(--cor-texto);
+  font-weight: bold;
+  text-align: left;
+  margin-left: 0.7rem;
+}
+
+.desc h3 {
+  font-size: 1em;
+  margin: 0.12rem 0;
+  text-shadow: 0.06rem 0.06rem 0.12rem rgba(0, 0, 0, 0.6);
+}
+
+.desc p {
+  margin-top: 0;
+  font-size: 0.9em;
+  color: var(--cor-avaliacao);
+}
+
+.poster a {
+  text-decoration: none;
+  color: var(--cor-texto);
+}
+
+@media (max-width: 900px) {
+  .container-galeria {
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 1rem;
+  }
+  .poster {
+    max-width: 10rem;
+  }
+  .poster img {
+    height: 12rem;
+  }
+  .sub-titulo {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    margin-left: 4vw;
+    padding-left: 0.5rem;
+    border-left-width: 0.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+  main {
+    margin-bottom: 1rem;
+  }
+  .container-galeria {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0 1vw;
+  }
+  .poster {
+    max-width: 7rem;
+    border-radius: 0.5rem;
+  }
+  .poster img {
+    height: 7rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  .sub-titulo {
+    font-size: 1rem;
+    margin-left: 2vw;
+    padding-left: 0.3rem;
+    border-left-width: 0.15rem;
+  }
+  .linha {
+    height: 0.12rem;
+    margin: 0.3rem auto 1rem;
+    border-radius: 0.08rem;
+  }
+  .desc {
+    margin-left: 0.3rem;
+  }
+  .desc h3 {
+    font-size: 0.9em;
+    margin: 0.08rem 0;
+  }
+}

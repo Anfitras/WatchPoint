@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Acompanhe episódios de séries e animes, avalie filmes e séries, e organize suas notas para não perder o que já assistiu."
+    />
+    <meta
+      name="keywords"
+      content="filmes, séries, animes, marcar, episódios, novos episódios, lista, myanimelist"
+    />
+    <meta name="author" content="Arthur Beraldo" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pagina-titulo-unico.css" />
+    <link rel="stylesheet" href="../css/pagina-titulo-unico(eps).css" />
+    <link
+      rel="shortcut icon"
+      href="../img-gerais/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>WatchPoint | O Cavaleiro das Trevas</title>
+    <style>
+      :root {
+        --cor-principal: #090a0f;
+        --cor-shadow: #123e59;
+        --cor-destaque: #ed4f08;
+        --cor-bg: #132730;
+        --cor-hover: #000000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="navegador">
+      <div id="nav-esquerda">
+        <div id="logo">
+          <img src="../img-gerais/logo_watchpoint.png" alt="Logo WatchPoint" />
+        </div>
+        <div id="menu-wrapper">
+          <input type="checkbox" id="menu-drop" class="menu-drop" />
+          <label for="menu-drop" class="menu-texto">&#9776; Menu</label>
+          <nav class="menu">
+            <a href="../index.html">Home</a>
+            <a href="../pag-gerais/animes.html">Animes</a>
+            <a href="../pag-gerais/series.html">Séries</a>
+            <a href="../pag-gerais/filmes.html">Filmes</a>
+            <a href="../historia.html">História</a>
+          </nav>
+        </div>
+        <div class="separador"></div>
+      </div>
+
+      <div id="nav-centro">
+        <form class="pesquisa">
+          <label for="pesquisa-inline" style="display: none">Pesquisar</label>
+          <input
+            type="text"
+            id="pesquisa-inline"
+            placeholder="🔍︎ Buscar título..."
+          />
+        </form>
+      </div>
+
+      <div id="nav-direita">
+        <nav class="separador"></nav>
+        <nav class="nav">
+          <a href="../crud.html">Cadastro</a>
+          <a href="../biblioteca.html">Biblioteca</a>
+          <a href="../login.html">Login</a>
+        </nav>
+        <nav
+          class="separador"
+          style="margin-left: -50px; background-color: transparent"
+        ></nav>
+      </div>
+    </header>
+
+    <main>
+      <div id="cabecalho">
+        <h1>BATMAN: O CAVALEIRO DAS TREVAS</h1>
+
+        <div class="painel-avaliacao">
+          <div class="nota-geral">
+            <p class="label">Nota Geral</p>
+            <p class="valor">9.0 / 10</p>
+          </div>
+
+          <div class="sua-nota">
+            <p class="label">Sua Nota</p>
+            <a href="#editModal"
+              ><button
+                type="button"
+                class="botao-padrao"
+                style="padding: 7px 16px"
+              >
+                ★ Avaliar
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="conteudo">
+        <div class="midia">
+          <div class="poster">
+            <img
+              src="../banners/filmes/cavaleiro_das_trevas.jpeg"
+              alt="Poster do filme O Cavaleiro das Trevas"
+            />
+          </div>
+          <div class="trailer">
+            <iframe
+              src="https://www.youtube.com/embed/2l3DSTa33gI?si=QPXY1CJ0aN1bzIdP"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="genero">
+          <p>Ação</p>
+          <p>Aventura</p>
+          <p>Crime</p>
+          <p>Drama</p>
+          <p>Suspense</p>
+          <p>Ficção Científica</p>
+          <p>Mistério</p>
+          <p>Noir</p>
+        </div>
+
+        <p class="desc">
+          Quando uma ameaça conhecida como Coringa causa estragos e caos no povo
+          de Gotham, Batman, James Gordon e Harvey Dent precisam trabalhar
+          juntos para acabar com a loucura.
+        </p>
+      </div>
+    </main>
+
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <a href="#" class="close">&times;</a>
+        <form action="../biblioteca.html" method="post" class="formulario">
+          <div class="form-inline">
+            <div class="form-group">
+              <label for="status">Status:</label>
+              <select name="Status" id="status" required>
+                <option value="" disabled selected hidden>
+                  Escolha um Status
+                </option>
+                <option value="assistindo">👁️ Assistindo</option>
+                <option value="assistido">✔️ Assistido</option>
+                <option value="planeja">📌 Planejo Assistir</option>
+                <option value="desistiu">❌ Desisti</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="nota">Nota:</label>
+              <select name="Nota" id="nota" required>
+                <option value="" disabled selected hidden>
+                  Escolha uma Nota
+                </option>
+                <option value="1">1 - Terrível</option>
+                <option value="2">2 - Horrível</option>
+                <option value="3">3 - Muito Ruim</option>
+                <option value="4">4 - Ruim</option>
+                <option value="5">5 - Mediano</option>
+                <option value="6">6 - Ok</option>
+                <option value="7">7 - Bom</option>
+                <option value="8">8 - Muito Bom</option>
+                <option value="9">9 - Ótimo</option>
+                <option value="10">10 - Obra de Arte</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="comentario">Sua Avaliação: </label>
+          <textarea
+            id="comentario"
+            name="Comentario"
+            placeholder="Escreva sua opinião sobre o anime..."
+          ></textarea>
+
+          <div>
+            <button type="submit" class="botao-padrao">Enviar Avaliação</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Watchpoint. Todos os direitos reservados.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/_anfitras" target="_blank"
+          >Instagram</a
+        >
+        | <a href="https://github.com/Anfitras">GitHub</a> |
+        <a href="mailto:arthur.beraldo@alunos.ifsuldeminas.edu.br">Contato</a>
+      </div>
+    </footer>
+  </body>
+</html>

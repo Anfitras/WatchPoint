@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Acompanhe episódios de séries e animes, avalie filmes e séries, e organize suas notas para não perder o que já assistiu."
+    />
+    <meta
+      name="keywords"
+      content="filmes, séries, animes, marcar, episódios, novos episódios, lista, myanimelist"
+    />
+    <meta name="author" content="Arthur Beraldo" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link
+      rel="shortcut icon"
+      href="img-gerais/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>WatchPoint</title>
+  </head>
+
+  <body>
+    <header id="navegador">
+      <div id="nav-esquerda">
+        <div id="logo">
+          <img src="img-gerais/logo_watchpoint.png" alt="Logo do WatchPoint" />
+        </div>
+        <div id="menu-wrapper">
+          <input type="checkbox" id="menu-drop" class="menu-drop" />
+          <label for="menu-drop" class="menu-texto">&#9776; Menu</label>
+          <nav class="menu" aria-label="Menu principal">
+            <a href="index.html">Home</a>
+            <a href="pag-gerais/animes.html">Animes</a>
+            <a href="pag-gerais/series.html">Séries</a>
+            <a href="pag-gerais/filmes.html">Filmes</a>
+            <a href="historia.html">História</a>
+          </nav>
+        </div>
+        <div class="separador"></div>
+      </div>
+
+      <div id="nav-centro">
+        <form class="pesquisa" role="search">
+          <label for="pesquisa-inline" style="display: none">Pesquisar</label>
+          <input
+            type="text"
+            id="pesquisa-inline"
+            placeholder="🔍︎ Buscar título..."
+            aria-label="Buscar título"
+          />
+        </form>
+      </div>
+
+      <div id="nav-direita">
+        <nav class="separador"></nav>
+        <nav class="nav" aria-label="Acesso rápido">
+          <a href="crud.html">Cadastro</a>
+          <a href="biblioteca.html">Biblioteca</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <nav
+          class="separador"
+          style="margin-left: -50px; background-color: transparent"
+        ></nav>
+      </div>
+    </header>
+
+    <main>
+      <h1 id="titulo_principal">WATCHPOINT</h1>
+
+      <section>
+        <h2 class="sub-titulo">Filmes Populares</h2>
+        <hr class="linha" />
+        <div class="container-galeria">
+          <article class="poster">
+            <a href="pag-filmes/vingadores_ultimato.html"
+              ><img
+                src="banners/filmes/vingadores_ultimato.jpg"
+                alt="Pôster de Vingadores: Ultimato"
+              />
+              <div class="desc">
+                <h3>Vingadores: Ultimato</h3>
+                <p>⭐ 8.4</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-filmes/o_iluminado.html"
+              ><img
+                src="banners/filmes/o_iluminado.jpeg"
+                alt="Pôster de O Iluminado"
+              />
+              <div class="desc">
+                <h3>O Iluminado</h3>
+                <p>⭐ 8.4</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-filmes/cidade_de_deus.html"
+              ><img
+                src="banners/filmes/cidade_de_deus.jpg"
+                alt="Pôster de Cidade de Deus"
+              />
+              <div class="desc">
+                <h3>Cidade de Deus</h3>
+                <p>⭐ 8.6</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-filmes/o_cavaleiro_das_trevas.html"
+              ><img
+                src="banners/filmes/cavaleiro_das_trevas.jpeg"
+                alt="Pôster de O Cavaleiro das Trevas"
+              />
+              <div class="desc">
+                <h3>O Cavaleiro das Trevas</h3>
+                <p>⭐ 9.0</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-filmes/clube_da_luta.html"
+              ><img
+                src="banners/filmes/clube_da_luta.jpeg"
+                alt="Pôster de Clube da Luta"
+              />
+              <div class="desc">
+                <h3>Clube da Luta</h3>
+                <p>⭐ 8.8</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-filmes/o_poderoso_chefao.html"
+              ><img
+                src="banners/filmes/o_poderoso_chefao.jpg"
+                alt="Pôster de O Poderoso Chefão"
+              />
+              <div class="desc">
+                <h3>O Poderoso Chefão</h3>
+                <p>⭐ 9.2</p>
+              </div></a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sub-titulo">Séries Populares</h2>
+        <hr class="linha" />
+        <div class="container-galeria">
+          <article class="poster">
+            <a href="pag-series/game_of_thrones.html"
+              ><img
+                src="banners/series/game_of_thrones.jpg"
+                alt="Pôster de Game of Thrones"
+              />
+              <div class="desc">
+                <h3>Game of Thrones</h3>
+                <p>⭐ 9.2</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-series/dark.html"
+              ><img src="banners/series/dark.jpeg" alt="Pôster de Dark" />
+              <div class="desc">
+                <h3>Dark</h3>
+                <p>⭐ 8.7</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-series/supernatural.html"
+              ><img
+                src="banners/series/supernatural.jpeg"
+                alt="Pôster de Supernatural"
+              />
+              <div class="desc">
+                <h3>Supernatural</h3>
+                <p>⭐ 8.4</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-series/friends.html"
+              ><img src="banners/series/friends.jpg" alt="Pôster de Friends" />
+              <div class="desc">
+                <h3>Friends</h3>
+                <p>⭐ 8.9</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-series/breaking_bad.html"
+              ><img
+                src="banners/series/breaking_bad.jpeg"
+                alt="Pôster de Breaking Bad"
+              />
+              <div class="desc">
+                <h3>Breaking Bad</h3>
+                <p>⭐ 9.5</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-series/the_last_of_us.html"
+              ><img
+                src="banners/series/the_last_of_us.jpeg"
+                alt="Pôster de The Last of Us"
+              />
+              <div class="desc">
+                <h3>The Last of Us</h3>
+                <p>⭐ 8.6</p>
+              </div></a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sub-titulo">Animes Populares</h2>
+        <hr class="linha" />
+        <div class="container-galeria">
+          <article class="poster">
+            <a href="pag-animes/one_piece.html"
+              ><img
+                src="banners/animes/one_piece.jpeg"
+                alt="Pôster de One Piece"
+              />
+              <div class="desc">
+                <h3>One Piece</h3>
+                <p>⭐ 9.0</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-animes/attack_on_titan.html"
+              ><img
+                src="banners/animes/attack_on_titan.jpeg"
+                alt="Pôster de Attack on Titan"
+              />
+              <div class="desc">
+                <h3>Attack on Titan</h3>
+                <p>⭐ 9.1</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-animes/black_clover.html"
+              ><img
+                src="banners/animes/black_clover.jpeg"
+                alt="Pôster de Black Clover"
+              />
+              <div class="desc">
+                <h3>Black Clover</h3>
+                <p>⭐ 8.2</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-animes/naruto.html"
+              ><img src="banners/animes/naruto.jpeg" alt="Pôster de Naruto" />
+              <div class="desc">
+                <h3>Naruto</h3>
+                <p>⭐ 8.4</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-animes/demon_slayer.html"
+              ><img
+                src="banners/animes/demon_slayer.jpeg"
+                alt="Pôster de Demon Slayer"
+              />
+              <div class="desc">
+                <h3>Demon Slayer</h3>
+                <p>⭐ 8.6</p>
+              </div></a
+            >
+          </article>
+          <article class="poster">
+            <a href="pag-animes/hunter_x_hunter.html"
+              ><img
+                src="banners/animes/hunter_x_hunter.jpg"
+                alt="Pôster de Hunter x Hunter"
+              />
+              <div class="desc">
+                <h3>Hunter x Hunter</h3>
+                <p>⭐ 9.0</p>
+              </div></a
+            >
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 WatchPoint. Todos os direitos reservados.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/_anfitras/" target="_blank"
+          >Instagram</a
+        >
+        | <a href="https://github.com/Anfitras">GitHub</a> |
+        <a href="mailto:arthur.beraldo@alunos.ifsuldeminas.edu.br">Contato</a>
+      </div>
+    </footer>
+  </body>
+</html>

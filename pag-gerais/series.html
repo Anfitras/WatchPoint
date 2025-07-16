@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Acompanhe episódios de séries e animes, avalie filmes e séries, e organize suas notas para não perder o que já assistiu."
+    />
+    <meta
+      name="keywords"
+      content="filmes, séries, animes, marcar, episódios, novos episódios, lista, myanimelist"
+    />
+    <meta name="author" content="Arthur Beraldo" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pag-gerais.css" />
+    <link
+      rel="shortcut icon"
+      href="../img-gerais/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>WatchPoint - Séries</title>
+  </head>
+
+  <body>
+    <header id="navegador">
+      <div id="nav-esquerda">
+        <div id="logo">
+          <img src="../img-gerais/logo_watchpoint.png" alt="Logo WatchPoint" />
+        </div>
+        <div id="menu-wrapper">
+          <input type="checkbox" id="menu-drop" class="menu-drop" />
+          <label for="menu-drop" class="menu-texto">&#9776; Menu</label>
+          <nav class="menu">
+            <a href="../index.html">Home</a>
+            <a href="animes.html">Animes</a>
+            <a href="series.html">Séries</a>
+            <a href="filmes.html">Filmes</a>
+            <a href="../historia.html">História</a>
+          </nav>
+        </div>
+        <div class="separador"></div>
+      </div>
+
+      <div id="nav-centro">
+        <form class="pesquisa">
+          <label for="pesquisa-inline" style="display: none">Pesquisar</label>
+          <input
+            type="text"
+            id="pesquisa-inline"
+            placeholder="🔍︎ Buscar título..."
+          />
+        </form>
+      </div>
+
+      <div id="nav-direita">
+        <nav class="separador"></nav>
+        <nav class="nav">
+          <a href="../crud.html">Cadastro</a>
+          <a href="../biblioteca.html">Biblioteca</a>
+          <a href="../login.html">Login</a>
+        </nav>
+        <nav
+          class="separador"
+          style="margin-left: -50px; background-color: transparent"
+        ></nav>
+      </div>
+    </header>
+
+    <h1 id="titulo_principal">SÉRIES</h1>
+
+    <main>
+      <section class="carrossel-container">
+        <img
+          id="carrossel-bg"
+          src="../banners_horizontal/series/breaking_bad.jpg"
+          alt="Fundo"
+        />
+        <div class="carrossel-overlay">
+          <img
+            id="carrossel-poster"
+            src="../banners/series/breaking_bad.jpeg"
+            alt="Poster"
+          />
+          <div class="carrossel-info">
+            <div id="carrossel-title" class="title">Braking Bad</div>
+            <div id="carrossel-rating" class="rating">⭐ 9.5</div>
+          </div>
+        </div>
+        <div class="arrow left" onclick="prevSerie()">&#10094;</div>
+        <div class="arrow right" onclick="nextSerie()">&#10095;</div>
+      </section>
+
+      <hr class="linha" />
+
+      <section class="container-galeria">
+        <div class="poster">
+          <a href="../pag-series/dark.html"
+            ><img src="../banners/series/dark.jpeg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/dark.html">Dark</a>
+          </div>
+          <div class="nota">⭐ 8.7</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/friends.html"
+            ><img src="../banners/series/friends.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/friends.html">Friends</a>
+          </div>
+          <div class="nota">⭐ 8.9</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/supernatural.html"
+            ><img src="../banners/series/supernatural.jpeg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/supernatural.html">Supernatural</a>
+          </div>
+          <div class="nota">⭐ 8.4</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/the_boys.html"
+            ><img src="../banners/series/the_boys.jpeg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/the_boys.html">The Boys</a>
+          </div>
+          <div class="nota">⭐ 8.6</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/the_last_of_us.html"
+            ><img src="../banners/series/the_last_of_us.jpeg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/the_last_of_us.html">The Last of Us</a>
+          </div>
+          <div class="nota">⭐ 8.6</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/the_office"
+            ><img src="../banners/series/the_office.jpeg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/the_office">The Office</a>
+          </div>
+          <div class="nota">⭐ 9.0</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/vikings.html"
+            ><img src="../banners/series/vikings.jpeg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/vikings.html">Vikings</a>
+          </div>
+          <div class="nota">⭐ 8.5</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/gravity_falls.html"
+            ><img src="../banners/series/gravity_falls.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/gravity_falls.html">Gravity Falls</a>
+          </div>
+          <div class="nota">⭐ 8.9</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/lost.html"
+            ><img src="../banners/series/lost.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/lost.html">Lost</a>
+          </div>
+          <div class="nota">⭐ 8.3</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/teen_wolf.html"
+            ><img src="../banners/series/teen_wolf.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/teen_wolf.html">Teen Wolf</a>
+          </div>
+          <div class="nota">⭐ 7.9</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/peaky_blinders.html"
+            ><img src="../banners/series/peaky_blinders.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/peaky_blinders.html">Peaky Blinders</a>
+          </div>
+          <div class="nota">⭐ 8.7</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/stranger_things.html"
+            ><img src="../banners/series/stranger_things.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/stranger_things.html">Stranger Things</a>
+          </div>
+          <div class="nota">⭐ 8.6</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/hora_de_aventura.html"
+            ><img src="../banners/series/hora_de_aventura.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/hora_de_aventura.html">Hora de Aventura</a>
+          </div>
+          <div class="nota">⭐ 8.6</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/chaves.html"
+            ><img src="../banners/series/chaves.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/chaves.html">Chaves</a>
+          </div>
+          <div class="nota">⭐ 8.7</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/vampire_diaries.html"
+            ><img src="../banners/series/vampire_diaries.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/vampire_diaries.html">The Vampire Diaries</a>
+          </div>
+          <div class="nota">⭐ 7.7</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/the_walking_dead.html"
+            ><img src="../banners/series/the_walking_dead.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/the_walking_dead.html">The Walking Dead </a>
+          </div>
+          <div class="nota">⭐ 8.1</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/arcane.html"
+            ><img src="../banners/series/arcane.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/arcane.html">Arcane</a>
+          </div>
+          <div class="nota">⭐ 9.0</div>
+        </div>
+        <div class="poster">
+          <a href="../pag-series/bojack_horseman.html"
+            ><img src="../banners/series/bojack_horseman.jpg"
+          /></a>
+          <div class="titulo">
+            <a href="../pag-series/bojack_horseman.html">BoJack Horseman</a>
+          </div>
+          <div class="nota">⭐ 8.8</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 WatchPoint. Todos os direitos reservados.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/_anfitras" target="_blank"
+          >Instagram</a
+        >
+        | <a href="https://github.com/Anfitras">GitHub</a> |
+        <a href="mailto:arthur.beraldo@alunos.ifsuldeminas.edu.br">Contato</a>
+      </div>
+    </footer>
+
+    <script>
+      const series = [
+        {
+          titulo: "Breaking Bad",
+          poster: "../banners/series/breaking_bad.jpeg",
+          fundo: "../banners_horizontal/series/breaking_bad.jpg",
+          nota: "⭐ 9.5",
+        },
+        {
+          titulo: "Chernobyl",
+          poster: "../banners/series/chernobyl.jpg",
+          fundo: "../banners_horizontal/series/chernobyl.jpg",
+          nota: "⭐ 9.2",
+        },
+        {
+          titulo: "Game of Thrones",
+          poster: "../banners/series/game_of_thrones.jpg",
+          fundo: "../banners_horizontal/series/game_of_thrones.jpg",
+          nota: "⭐ 9.2",
+        },
+        {
+          titulo: "Rick and Morty",
+          poster: "../banners/series/rick_and_morty.jpg",
+          fundo: "../banners_horizontal/series/rick_and_morty.jpg",
+          nota: "⭐ 9.1",
+        },
+      ];
+
+      let atual = 0;
+
+      function atualizarCarrossel() {
+        const serie = series[atual];
+        document.getElementById("carrossel-bg").src = serie.fundo;
+        document.getElementById("carrossel-poster").src = serie.poster;
+        document.getElementById("carrossel-title").textContent = serie.titulo;
+        document.getElementById("carrossel-rating").textContent = serie.nota;
+      }
+
+      function nextSerie() {
+        atual = (atual + 1) % series.length;
+        atualizarCarrossel();
+      }
+
+      function prevSerie() {
+        atual = (atual - 1 + series.length) % series.length;
+        atualizarCarrossel();
+      }
+
+      atualizarCarrossel();
+      setInterval(nextSerie, 5000);
+    </script>
+  </body>
+</html>

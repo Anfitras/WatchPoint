@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Acompanhe episódios de séries e animes, avalie filmes e séries, e organize suas notas para não perder o que já assistiu."
+    />
+    <meta
+      name="keywords"
+      content="filmes, séries, animes, marcar, episódios, novos episódios, lista, myanimelist"
+    />
+    <meta name="author" content="Arthur Beraldo" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/biblioteca.css" />
+    <link
+      rel="shortcut icon"
+      href="img-gerais/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>WatchPoint - Biblioteca</title>
+  </head>
+  <body>
+    <header id="navegador">
+      <div id="nav-esquerda">
+        <div id="logo">
+          <img src="img-gerais/logo_watchpoint.png" alt="Logo WatchPoint" />
+        </div>
+        <div id="menu-wrapper">
+          <input type="checkbox" id="menu-drop" class="menu-drop" />
+          <label for="menu-drop" class="menu-texto">&#9776; Menu</label>
+          <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="pag-gerais/animes.html">Animes</a>
+            <a href="pag-gerais/series.html">Séries</a>
+            <a href="pag-gerais/filmes.html">Filmes</a>
+            <a href="historia.html">História</a>
+          </nav>
+        </div>
+        <div class="separador"></div>
+      </div>
+
+      <div id="nav-centro">
+        <form class="pesquisa">
+          <label for="pesquisa-inline" style="display: none">Pesquisar</label>
+          <input
+            type="text"
+            id="pesquisa-inline"
+            placeholder="🔍︎ Buscar título..."
+          />
+        </form>
+      </div>
+
+      <div id="nav-direita">
+        <nav class="separador"></nav>
+        <nav class="nav">
+          <a href="crud.html">Cadastro</a>
+          <a href="biblioteca.html">Biblioteca</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <nav
+          class="separador"
+          style="margin-left: -50px; background-color: transparent"
+        ></nav>
+      </div>
+    </header>
+
+    <main>
+      <h1 id="titulo_principal">BIBLIOTECA</h1>
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th>Pôster</th>
+              <th>Nome</th>
+              <th>Nota</th>
+              <th>Tipo</th>
+              <th>Status</th>
+              <th>Progresso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a href="pag-series/breaking_bad.html"
+                  ><img
+                    class="poster"
+                    src="banners_edit/series/breaking_bad.jpeg"
+                    alt="Breaking Bad"
+                /></a>
+              </td>
+              <td>Breaking Bad</td>
+              <td class="nota">10</td>
+              <td>Série</td>
+              <td>✔️ Assistido</td>
+              <td>
+                <div class="progresso">
+                  <span class="progresso-texto">62 / 62</span>
+                  <div class="barra-container">
+                    <div class="barra-progresso" style="width: 100%"></div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="pag-filmes/o_cavaleiro_das_trevas.html"
+                  ><img
+                    class="poster"
+                    src="banners_edit/filmes/cavaleiro_das_trevas.jpeg"
+                    alt="Batman"
+                /></a>
+              </td>
+              <td>Batman: O Cavaleiro das Trevas</td>
+              <td class="nota">8</td>
+              <td>Filme</td>
+              <td>✔️ Assistido</td>
+              <td>
+                <div class="progresso">
+                  <span class="progresso-texto">-</span>
+                  <div class="barra-container">
+                    <div class="barra-progresso" style="width: 100%"></div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="pag-series/the_last_of_us.html"
+                  ><img
+                    class="poster"
+                    src="banners_edit/series/the_last_of_us.jpeg"
+                    alt="The Last of Us"
+                /></a>
+              </td>
+              <td>The Last of Us</td>
+              <td class="nota">6</td>
+              <td>Série</td>
+              <td>❌ Desisti</td>
+              <td>
+                <div class="progresso">
+                  <span class="progresso-texto">10 / 17</span>
+                  <div class="barra-container">
+                    <div class="barra-progresso" style="width: 59%"></div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="pag-animes/one_piece.html"
+                  ><img
+                    class="poster"
+                    src="banners_edit/animes/one_piece.jpeg"
+                    alt="One Piece"
+                /></a>
+              </td>
+              <td>One Piece</td>
+              <td class="nota">-</td>
+              <td>Anime</td>
+              <td>📌 Planejo Assistir</td>
+              <td>
+                <div class="progresso">
+                  <span class="progresso-texto">0 / 1122+</span>
+                  <div class="barra-container">
+                    <div class="barra-progresso" style="width: 0%"></div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="pag-series/dark.html"
+                  ><img
+                    class="poster"
+                    src="banners_edit/series/dark.jpeg"
+                    alt="Dark"
+                /></a>
+              </td>
+              <td>Dark</td>
+              <td class="nota">7</td>
+              <td>Série</td>
+              <td>✔️ Assistido</td>
+              <td>
+                <div class="progresso">
+                  <span class="progresso-texto">26 / 26</span>
+                  <div class="barra-container">
+                    <div class="barra-progresso" style="width: 100%"></div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 WatchPoint. Todos os direitos reservados.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/_anfitras/" target="_blank"
+          >Instagram</a
+        >
+        | <a href="https://github.com/Anfitras">GitHub</a> |
+        <a href="mailto:arthur.beraldo@alunos.ifsuldeminas.edu.br">Contato</a>
+      </div>
+    </footer>
+  </body>
+</html>
