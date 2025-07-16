@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+section {
+  flex: 1;
+  padding: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #111;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  box-shadow: 0 0.25rem 0.6rem var(--cor-shadow);
+}
+
+thead th {
+  background-color: var(--cor-principal);
+  color: #fff;
+  padding: 1rem;
+  font-size: 1.1em;
+}
+
+tbody td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #333;
+  transition: background 0.3s;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
+
+tbody tr:hover {
+  background-color: var(--cor-hover);
+}
+
+img.poster {
+  width: 100%;
+  max-width: 4.5rem;
+  height: auto;
+  border-radius: 0.375rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 0.625rem var(--cor-secundaria);
+}
+
+img.poster:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 1.25rem var(--cor-secundaria);
+}
+
+.nota {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: green;
+}
+
+.progresso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.progresso-texto {
+  font-size: 0.9em;
+  color: var(--cor-secundaria);
+}
+
+.barra-container {
+  background-color: #fff;
+  width: 6.5rem;
+  height: 0.6rem;
+  border-radius: 0.3rem;
+  overflow: hidden;
+}
+
+.barra-progresso {
+  background-color: var(--cor-principal);
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+@media (max-width: 900px) {
+  section {
+    padding: 1rem;
+  }
+  table {
+    font-size: 0.95em;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.15rem 0.4rem var(--cor-shadow);
+  }
+  img.poster {
+    max-width: 3.5rem;
+    border-radius: 0.25rem;
+  }
+  .barra-container {
+    width: 4.5rem;
+    height: 0.4rem;
+    border-radius: 0.2rem;
+  }
+}
+@media (max-width: 600px) {
+  section {
+    padding: 0.5rem;
+  }
+  table {
+    font-size: 0.85em;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.08rem 0.2rem var(--cor-shadow);
+  }
+  thead th,
+  tbody td {
+    padding: 0.5rem;
+  }
+  img.poster {
+    max-width: 2.2rem;
+    border-radius: 0.15rem;
+  }
+  .progresso {
+    gap: 0.2rem;
+  }
+  .barra-container {
+    width: 2.5rem;
+    height: 0.25rem;
+    border-radius: 0.1rem;
+  }
+}
