@@ -100,10 +100,11 @@ main h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin: -1.8rem 0 0 -0.3rem;
+  list-style: none;
+  margin: -1.8rem 0 0.8rem -3rem;
 }
 
-.conteudo .genero p {
+.conteudo .genero li {
   font-size: 0.9em;
   text-transform: capitalize;
   text-shadow: 0.06rem 0.06rem 0.12rem var(--cor-shadow);

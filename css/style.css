@@ -182,6 +182,16 @@ footer {
   margin-top: auto;
   padding-bottom: 0.6rem;
 }
+
+footer .social a {
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+footer .social a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 900px) {
   #navegador {
     padding: 0.2rem 0.2rem;
@@ -193,7 +203,7 @@ footer {
     gap: 0.5rem;
   }
   #nav-esquerda {
-    gap: 1.0rem;
+    gap: 1rem;
   }
   #logo {
     margin-left: -0.5rem;
@@ -307,13 +317,4 @@ footer {
     font-size: 0.7em;
     padding-bottom: 0.1rem;
   }
-}
-
-footer .social a {
-  color: var(--cor-texto);
-  text-decoration: none;
-}
-
-footer .social a:hover {
-  text-decoration: underline;
 }

@@ -22,18 +22,17 @@
       type="image/x-icon"
     />
     <title>WatchPoint | O Cavaleiro das Trevas</title>
-    <style>
-      :root {
-        --cor-principal: #090a0f;
-        --cor-shadow: #123e59;
-        --cor-destaque: #ed4f08;
-        --cor-bg: #132730;
-        --cor-hover: #000000;
-      }
-    </style>
   </head>
 
-  <body>
+  <body
+    style="
+      --cor-principal: #090a0f;
+      --cor-shadow: #123e59;
+      --cor-destaque: #ed4f08;
+      --cor-bg: #132730;
+      --cor-hover: #000000;
+    "
+  >
     <header id="navegador">
       <div id="nav-esquerda">
         <div id="logo">
@@ -123,16 +122,16 @@
           </div>
         </div>
 
-        <div class="genero">
-          <p>Ação</p>
-          <p>Aventura</p>
-          <p>Crime</p>
-          <p>Drama</p>
-          <p>Suspense</p>
-          <p>Ficção Científica</p>
-          <p>Mistério</p>
-          <p>Noir</p>
-        </div>
+        <ul class="genero">
+          <li>Ação</li>
+          <li>Aventura</li>
+          <li>Crime</li>
+          <li>Drama</li>
+          <li>Suspense</li>
+          <li>Ficção Científica</li>
+          <li>Mistério</li>
+          <li>Noir</li>
+        </ul>
 
         <p class="desc">
           Quando uma ameaça conhecida como Coringa causa estragos e caos no povo
@@ -184,7 +183,7 @@
           <textarea
             id="comentario"
             name="Comentario"
-            placeholder="Escreva sua opinião sobre o anime..."
+            placeholder="Escreva sua opinião sobre o filme..."
           ></textarea>
 
           <div>

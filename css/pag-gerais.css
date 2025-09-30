@@ -1,5 +1,6 @@
 main {
   margin-bottom: 1.5rem;
+  margin-right: 5rem;
 }
 
 h1 {
@@ -73,6 +74,7 @@ h1 {
   cursor: pointer;
   z-index: 10;
   transition: background 0.3s;
+  border: none;
 }
 
 .arrow:hover {
@@ -101,9 +103,8 @@ h1 {
   max-width: 95rem;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1.5rem;
   justify-content: center;
 }
 
@@ -113,7 +114,8 @@ h1 {
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding-bottom: 0.6rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .poster:hover {
@@ -122,24 +124,34 @@ h1 {
 }
 
 .poster img {
-  width: 100%;
+  width: 12rem;
   height: auto;
+  aspect-ratio: 2 / 3;
 }
 
-.poster .titulo a {
+.poster > a {
   text-decoration: none;
   color: var(--cor-texto);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.poster .titulo {
   font-size: 1.1rem;
   font-weight: bold;
-  display: block;
-  margin-top: 0.12rem;
+  margin-top: 0.1rem;
+  padding: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .poster .nota {
   font-size: 0.95rem;
   color: var(--cor-avaliacao);
   font-weight: bolder;
-  margin-top: 0;
+  padding-bottom: 0.6rem;
 }
 
 @media (max-width: 1000px) {

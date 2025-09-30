@@ -137,12 +137,12 @@ img.poster {
 }
 
 .botao-editar {
-  background-color: #dc2626;
+  background-color: #2563eb;
   color: #fff;
 }
 
 .botao-editar:hover {
-  background-color: rgba(0, 128, 0, 0.233);
+  background-color: #1d4ed8;
 }
 
 .botao-remover {
@@ -227,7 +227,7 @@ img.poster {
   background-color: var(--cor-hover);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .two-columns-form {
     grid-template-columns: 1fr;
     max-width: 100%;
@@ -238,6 +238,31 @@ img.poster {
   table {
     font-size: 0.95em;
     max-width: 100%;
+  }
+  table thead {
+    display: none;
+  }
+  table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid var(--cor-principal);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  }
+  table td {
+    display: block;
+    text-align: right;
+    border-bottom: 1px dotted #555;
+  }
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--cor-destaque);
+  }
+  table td:last-child {
+    border-bottom: 0;
   }
   .form,
   .modal-content {

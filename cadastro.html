@@ -14,7 +14,7 @@
     />
     <meta name="author" content="Arthur Beraldo" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/cadastro.css" />
+    <link rel="stylesheet" href="css/login_cadastro.css" />
     <link
       rel="shortcut icon"
       href="img-gerais/favicon.ico"
@@ -88,6 +88,7 @@
             id="senha"
             name="senha"
             placeholder="****"
+            minlength="8"
             required
           />
         </div>
@@ -106,7 +107,7 @@
         <div class="campo-input">
           <label for="nascimento">Data de nascimento:</label>
           <input
-            type="text"
+            type="date"
             placeholder="dd / mm / aaaa"
             pattern="\d{2}/\d{2}/\d{4}"
             required
