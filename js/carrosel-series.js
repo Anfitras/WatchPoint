@@ -26,6 +26,7 @@ const series = [
 ];
 
 let atual = 0;
+let carrosselIntervalo;
 
 function atualizarCarrossel() {
   const serie = series[atual];
@@ -33,6 +34,11 @@ function atualizarCarrossel() {
   document.getElementById("carrossel-poster").src = serie.poster;
   document.getElementById("carrossel-title").textContent = serie.titulo;
   document.getElementById("carrossel-rating").textContent = serie.nota;
+}
+
+function iniciarTimer() {
+  clearInterval(carrosselIntervalo);
+  carrosselIntervalo = setInterval(nextSerie, 5000);
 }
 
 function nextSerie() {
@@ -45,5 +51,15 @@ function prevSerie() {
   atualizarCarrossel();
 }
 
+function cliqueNext() {
+  nextSerie();
+  iniciarTimer();
+}
+
+function cliquePrev() {
+  prevSerie();
+  iniciarTimer();
+}
+
 atualizarCarrossel();
-setInterval(nextSerie, 5000);
+iniciarTimer();

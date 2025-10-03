@@ -26,6 +26,7 @@ const animes = [
 ];
 
 let atual = 0;
+let carrosselIntervalo;
 
 function atualizarCarrossel() {
   const anime = animes[atual];
@@ -33,6 +34,11 @@ function atualizarCarrossel() {
   document.getElementById("carrossel-poster").src = anime.poster;
   document.getElementById("carrossel-title").textContent = anime.titulo;
   document.getElementById("carrossel-rating").textContent = anime.nota;
+}
+
+function iniciarTimer() {
+  clearInterval(carrosselIntervalo);
+  carrosselIntervalo = setInterval(nextAnime, 5000);
 }
 
 function nextAnime() {
@@ -45,5 +51,15 @@ function prevAnime() {
   atualizarCarrossel();
 }
 
+function cliqueNext() {
+  nextAnime();
+  iniciarTimer();
+}
+
+function cliquePrev() {
+  prevAnime();
+  iniciarTimer();
+}
+
 atualizarCarrossel();
-setInterval(nextAnime, 5000);
+iniciarTimer();

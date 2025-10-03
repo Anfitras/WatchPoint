@@ -22,6 +22,7 @@
     />
     <title>WatchPoint - CRUD</title>
   </head>
+
   <body>
     <header id="navegador">
       <div id="nav-esquerda">
@@ -56,7 +57,7 @@
       <div id="nav-direita">
         <nav class="separador"></nav>
         <nav class="nav">
-          <a href="crud.html">Cadastro</a>
+          <a href="crud.html">Crud</a>
           <a href="biblioteca.html">Biblioteca</a>
           <a href="login.html">Login</a>
         </nav>
@@ -71,7 +72,7 @@
 
     <main>
       <div id="janela-add">
-        <form class="form">
+        <form class="form" id="form-cadastro">
           <label for="nome">Nome do Filme/Série/Anime:</label>
           <input
             type="text"
@@ -84,9 +85,9 @@
           <label for="tipo">Tipo:</label>
           <select id="tipo" name="tipo" required>
             <option value="" disabled selected hidden>Escolha uma Tipo</option>
-            <option value="anime">Anime</option>
-            <option value="filme">Filme</option>
-            <option value="serie">Série</option>
+            <option value="Anime">Anime</option>
+            <option value="Filme">Filme</option>
+            <option value="Série">Série</option>
           </select>
 
           <label for="poster">URL do Pôster:</label>
@@ -107,14 +108,15 @@
             required
           ></textarea>
 
-          <label for="episodios">Quantidade de Episódios:</label>
-          <input
-            type="number"
-            id="episodios"
-            name="episodios"
-            placeholder="Ex: 24"
-            min="1"
-          />
+          <div id="container-episodios" class="escondido">
+            <label for="episodios">Quantidade de Episódios:</label>
+            <input
+              type="number"
+              id="episodios"
+              name="episodios"
+              placeholder="Ex: 24"
+            />
+          </div>
 
           <label for="nota">Nota Geral (0 a 10):</label>
           <input
@@ -122,8 +124,6 @@
             id="nota"
             name="nota"
             placeholder="Ex: 8.4"
-            min="0"
-            max="10"
             step="0.1"
           />
 
@@ -135,205 +135,68 @@
             placeholder="Ex: Ação, Aventura, Fantasia"
           />
 
-          <button type="submit">Salvar</button>
+          <button id="btn-cadastrar" type="submit">Salvar</button>
         </form>
       </div>
 
       <table>
-        <thead>
-          <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Pôster</th>
-            <th scope="col">Sinopse</th>
-            <th scope="col">Episódios</th>
-            <th scope="col">Nota</th>
-            <th scope="col">Gêneros</th>
-            <th scope="col">Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="Nome">Naruto</td>
-            <td data-label="Tipo">Anime</td>
-            <td data-label="Poster">
-              <img
-                class="poster"
-                src="banners/animes/naruto.jpeg"
-                alt="Naruto"
-              />
-            </td>
-            <td data-label="Sinopse" class="sinopse">
-              Naruto Uzumaki, um ninja adolescente travesso, luta enquanto busca
-              reconhecimento e sonha em se tornar o Hokage, o líder da vila e o
-              ninja mais forte.
-            </td>
-            <td data-label="Episodios">220</td>
-            <td data-label="Nota">8.4</td>
-            <td data-label="Generos">
-              <ul class="generos">
-                <li>Artes Marciais</li>
-                <li>Comédia Jovem</li>
-                <li>Shonen</li>
-                <li>Fantasia Jovem</li>
-                <li>Ação</li>
-                <li>Aventura</li>
-                <li>Animação</li>
-                <li>Comédia</li>
-                <li>Fantasia</li>
-              </ul>
-            </td>
-            <td data-label="Ações">
-              <a href="#editModal"
-                ><button class="botao-editar">Editar</button></a
-              >
-              <button class="botao-remover">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td data-label="Nome">Dark</td>
-            <td data-label="Tipo">Série</td>
-            <td data-label="Poster">
-              <img class="poster" src="banners/series/dark.jpeg" alt="Dark" />
-            </td>
-            <td data-label="Sinopse" class="sinopse">
-              Uma saga familiar com um toque sobrenatural, ambientada em uma
-              cidade alemã onde o desaparecimento de duas crianças expõe os
-              relacionamentos entre quatro famílias.
-            </td>
-            <td data-label="Episodios">26</td>
-            <td data-label="Nota">8.7</td>
-            <td data-label="Generos">
-              <ul class="generos">
-                <li>Épico</li>
-                <li>Drama</li>
-                <li>Mistério</li>
-                <li>Drama Psicológico</li>
-                <li>Suspense Psicológico</li>
-                <li>Viagem no Tempo</li>
-                <li>Crime</li>
-                <li>Suspense</li>
-              </ul>
-            </td>
-            <td data-label="Ações">
-              <a href="#editModal"
-                ><button class="botao-editar">Editar</button></a
-              >
-              <button class="botao-remover">Remover</button>
-            </td>
-          </tr>
-          <tr>
-            <td data-label="Nome">O Iluminado</td>
-            <td data-label="Tipo">Filme</td>
-            <td data-label="Poster">
-              <img
-                class="poster"
-                src="banners/filmes/o_iluminado.jpeg"
-                alt="O Iluminado"
-              />
-            </td>
-            <td data-label="Sinopse" class="sinopse">
-              Uma família se dirige a um hotel isolado para passar o inverno,
-              onde uma presença sinistra influencia o pai à violência. Ao mesmo
-              tempo, seu filho paranormal tem pressentimentos horripilantes do
-              passado e do futuro.
-            </td>
-            <td data-label="Episodios">-</td>
-            <td data-label="Nota">8.4</td>
-            <td data-label="Generos">
-              <ul class="generos">
-                <li>Drama Psicológico</li>
-                <li>Terror Psicológico</li>
-                <li>Mistério</li>
-                <li>Drama</li>
-                <li>Terror</li>
-                <li>Suspense</li>
-              </ul>
-            </td>
-            <td data-label="Ações">
-              <a href="#editModal"
-                ><button class="botao-editar">Editar</button></a
-              >
-              <button class="botao-remover">Remover</button>
-            </td>
-          </tr>
-        </tbody>
+        <thead></thead>
+        <tbody id="obrasTabela"></tbody>
       </table>
 
       <div id="editModal" class="modal">
         <div class="modal-content">
           <a href="#" class="close">&times;</a>
-          <form class="form two-columns-form">
+          <form class="form form-modal" id="form-edicao">
             <div class="coluna">
-              <label for="nome">Nome do Filme/Série/Anime:</label>
-              <input
-                type="text"
-                id="nome"
-                name="nome"
-                placeholder="Digite o nome"
-                required
-              />
+              <label for="edit-nome">Nome do Filme/Série/Anime:</label>
+              <input type="text" id="edit-nome" name="nome" required />
 
-              <label for="tipo">Tipo:</label>
-              <select id="tipo" name="tipo" required>
-                <option value="" disabled selected hidden>
-                  Escolha um Tipo
-                </option>
-                <option value="anime">Anime</option>
-                <option value="filme">Filme</option>
-                <option value="serie">Série</option>
+              <label for="edit-tipo">Tipo:</label>
+              <select id="edit-tipo" name="tipo" required>
+                <option value="Anime">Anime</option>
+                <option value="Filme">Filme</option>
+                <option value="Série">Série</option>
               </select>
 
-              <label for="poster">URL do Pôster:</label>
-              <input
-                type="url"
-                id="poster"
-                name="poster"
-                placeholder="https://..."
-                required
-              />
+              <label for="edit-poster">URL do Pôster:</label>
+              <input type="url" id="edit-poster" name="poster" required />
 
-              <label for="sinopse">Sinopse:</label>
+              <label for="edit-sinopse">Sinopse:</label>
               <textarea
-                id="sinopse"
+                id="edit-sinopse"
                 name="sinopse"
                 rows="4"
-                placeholder="Descreva brevemente o conteúdo"
                 required
               ></textarea>
             </div>
 
             <div class="coluna">
-              <label for="episodios">Quantidade de Episódios:</label>
-              <input
-                type="number"
-                id="episodios"
-                name="episodios"
-                placeholder="Ex: 24"
-                min="1"
-              />
+              <div id="container-episodios-edicao">
+                <label for="edit-episodios">Quantidade de Episódios:</label>
+                <input
+                  type="number"
+                  id="edit-episodios"
+                  name="episodios"
+                  min="1"
+                />
+              </div>
 
-              <label for="nota">Nota Geral (0 a 10):</label>
+              <label for="edit-nota">Nota Geral (0 a 10):</label>
               <input
                 type="number"
-                id="nota"
+                id="edit-nota"
                 name="nota"
-                placeholder="Ex: 8.4"
                 min="0"
                 max="10"
                 step="0.1"
               />
 
-              <label for="generos">Gêneros (separe por vírgula):</label>
-              <input
-                type="text"
-                id="generos"
-                name="generos"
-                placeholder="Ex: Ação, Aventura, Fantasia"
-              />
+              <label for="edit-generos">Gêneros (separe por vírgula):</label>
+              <input type="text" id="edit-generos" name="generos" />
             </div>
 
-            <button type="submit" class="btn-submit">Salvar</button>
+            <button type="submit" class="btn-submit">Salvar Alterações</button>
           </form>
         </div>
       </div>
@@ -345,9 +208,10 @@
         <a href="https://www.instagram.com/_anfitras/" target="_blank"
           >Instagram</a
         >
-        | <a href="https://github.com/Anfitras">GitHub</a> |
+        | <a href="https://github.com/Anfitras" target="_blank">GitHub</a> |
         <a href="mailto:arthur.beraldo@alunos.ifsuldeminas.edu.br">Contato</a>
       </div>
     </footer>
+    <script src="js/crud.js"></script>
   </body>
 </html>

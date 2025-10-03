@@ -26,6 +26,7 @@ const filmes = [
 ];
 
 let atual = 0;
+let carrosselIntervalo;
 
 function atualizarCarrossel() {
   const filme = filmes[atual];
@@ -33,6 +34,11 @@ function atualizarCarrossel() {
   document.getElementById("carrossel-poster").src = filme.poster;
   document.getElementById("carrossel-title").textContent = filme.titulo;
   document.getElementById("carrossel-rating").textContent = filme.nota;
+}
+
+function iniciarTimer() {
+  clearInterval(carrosselIntervalo);
+  carrosselIntervalo = setInterval(nextFilme, 5000);
 }
 
 function nextFilme() {
@@ -45,5 +51,15 @@ function prevFilme() {
   atualizarCarrossel();
 }
 
+function cliqueNext() {
+  nextFilme();
+  iniciarTimer();
+}
+
+function cliquePrev() {
+  prevFilme();
+  iniciarTimer();
+}
+
 atualizarCarrossel();
-setInterval(nextFilme, 5000);
+iniciarTimer();
