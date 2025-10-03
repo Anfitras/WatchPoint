@@ -2,7 +2,7 @@ const obras = [
   {
     nome: "Breaking Bad",
     tipo: "Série",
-    urlPoster: "../banners/series/breaking_bad.jpeg",
+    urlPoster: "banners/series/breaking_bad.jpeg",
     sinopse:
       "Um professor de química diagnosticado com câncer de pulmão inoperável recorre à fabricação e venda de metanfetamina com um ex-aluno para garantir o futuro de sua família.",
     episodios: 62,
@@ -21,7 +21,7 @@ const obras = [
   {
     nome: "Attack On Titan",
     tipo: "Anime",
-    urlPoster: "../banners/animes/attack_on_titan.jpeg",
+    urlPoster: "banners/animes/attack_on_titan.jpeg",
     sinopse:
       "A Depois que sua cidade natal é destruída, o jovem Eren Jaeger jura limpar a Terra dos gigantes Titãs humanoides que levaram a humanidade à beira da extinção.",
     episodios: 98,

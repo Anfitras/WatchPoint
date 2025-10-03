@@ -146,11 +146,16 @@
     <div id="editModal" class="modal">
       <div class="modal-content">
         <a href="#" class="close">&times;</a>
-        <form action="../biblioteca.html" method="post" class="formulario">
+        <form
+          action="../biblioteca.html"
+          id="formulario"
+          method="post"
+          class="formulario"
+        >
           <div class="form-inline">
             <div class="form-group">
               <label for="status">Status:</label>
-              <select name="Status" id="status" required>
+              <select name="Status" id="status">
                 <option value="" disabled selected hidden>
                   Escolha um Status
                 </option>
@@ -163,7 +168,7 @@
 
             <div class="form-group">
               <label for="nota">Nota:</label>
-              <select name="Nota" id="nota" required>
+              <select name="Nota" id="nota">
                 <option value="" disabled selected hidden>
                   Escolha uma Nota
                 </option>
@@ -190,8 +195,7 @@
                 type="number"
                 id="episodios"
                 name="Episodios"
-                min="0"
-                max="170"
+                data-total-episodios="170"
                 placeholder="0"
               />
               <span class="episodes-total">/ 170</span>
@@ -222,5 +226,6 @@
         <a href="mailto:arthur.beraldo@alunos.ifsuldeminas.edu.br">Contato</a>
       </div>
     </footer>
+    <script src="../js/validaçãoPagObra.js"></script>
   </body>
 </html>
