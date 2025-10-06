@@ -3,8 +3,6 @@ function validarFormularioObra(ids) {
   const nota = document.getElementById(ids.nota).value;
   const status = document.getElementById(ids.status).value;
   const episodiosInput = document.getElementById(ids.episodios);
-  const episodiosAssistidos = parseInt(episodiosInput.value, 10);
-  const maxEpisodios = parseInt(episodiosInput.dataset.totalEpisodios, 10);
 
   if (comentario === "" || comentario.length < 10) {
     alert("Por favor, insira um comentário com ao menos 10 letras.");
@@ -20,16 +18,22 @@ function validarFormularioObra(ids) {
     );
     return false;
   }
-  if (
-    episodiosInput.value !== "" &&
-    (isNaN(episodiosAssistidos) ||
-      episodiosAssistidos < 0 ||
-      episodiosAssistidos > maxEpisodios)
-  ) {
-    alert(
-      `O número de episódios assistidos deve ser entre 0 e ${maxEpisodios}.`
-    );
-    return false;
+
+  if (episodiosInput) {
+    const episodiosAssistidos = parseInt(episodiosInput.value, 10);
+    const maxEpisodios = parseInt(episodiosInput.dataset.totalEpisodios, 10);
+
+    if (
+      episodiosInput.value !== "" &&
+      (isNaN(episodiosAssistidos) ||
+        episodiosAssistidos < 0 ||
+        episodiosAssistidos > maxEpisodios)
+    ) {
+      alert(
+        `O número de episódios assistidos deve ser entre 0 e ${maxEpisodios}.`
+      );
+      return false;
+    }
   }
 
   return true;
