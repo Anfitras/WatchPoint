@@ -23,7 +23,7 @@ const obras = [
     tipo: "Anime",
     urlPoster: "banners/animes/attack_on_titan.jpeg",
     sinopse:
-      "A Depois que sua cidade natal é destruída, o jovem Eren Jaeger jura limpar a Terra dos gigantes Titãs humanoides que levaram a humanidade à beira da extinção.",
+      "Depois que sua cidade natal é destruída, o jovem Eren Jaeger jura limpar a Terra dos gigantes Titãs humanoides que levaram a humanidade à beira da extinção.",
     episodios: 98,
     nota: 9.1,
     generos: [
@@ -43,7 +43,6 @@ const obras = [
 const formCadastro = document.getElementById("form-cadastro");
 const formEdicao = document.getElementById("form-edicao");
 const obrasTabela = document.getElementById("obrasTabela");
-const modalEdicao = document.getElementById("editModal");
 const tipoSelectCadastro = document.getElementById("tipo");
 const containerEpisodiosCadastro = document.getElementById(
   "container-episodios"
@@ -51,13 +50,18 @@ const containerEpisodiosCadastro = document.getElementById(
 
 function formatarTitulo(titulo) {
   if (!titulo) return "";
-  return titulo
-    .toLowerCase()
-    .split(" ")
-    .map((palavra) => {
-      return palavra.charAt(0).toUpperCase() + palavra.slice(1);
-    })
-    .join(" ");
+
+  const palavras = titulo.toLowerCase().split(" ");
+  const palavrasFormatadas = [];
+
+  for (let i = 0; i < palavras.length; i++) {
+    const palavra = palavras[i];
+    const primeiraLetra = palavra.charAt(0).toUpperCase();
+    const restoDaPalavra = palavra.slice(1);
+    palavrasFormatadas.push(primeiraLetra + restoDaPalavra);
+  }
+
+  return palavrasFormatadas.join(" ");
 }
 
 function validarFormulario(ids) {
@@ -104,31 +108,51 @@ function validarFormulario(ids) {
 }
 
 function atualizarLista() {
-  obrasTabela.innerHTML = obras
-    .map(
-      (o, index) => `
-    <tr>
-      <td data-label="Nome">${o.nome}</td>
-      <td data-label="Tipo">${o.tipo}</td>
-      <td data-label="Poster">
-        <img class="poster" src="${o.urlPoster}" alt="${o.nome}" />
-      </td>
-      <td data-label="Sinopse" class="sinopse">${o.sinopse}</td>
-      <td data-label="Episodios">${o.episodios}</td>
-      <td data-label="Nota">${o.nota}</td>
-      <td data-label="Generos">
-        <ul class="generos">${o.generos
-          .map((g) => `<li>${g}</li>`)
-          .join("")}</ul>
-      </td>
-      <td data-label="Ações">
-        <button class="botao-editar" data-index="${index}">Editar</button>
-        <button class="botao-remover" data-index="${index}">Remover</button>
-      </td>
-    </tr>
-  `
-    )
-    .join("");
+  let htmlDaTabela = "";
+
+  for (let i = 0; i < obras.length; i++) {
+    const obra = obras[i];
+
+    let generosHtml = "";
+    for (let j = 0; j < obra.generos.length; j++) {
+      generosHtml += `<li>${obra.generos[j]}</li>`;
+    }
+
+    htmlDaTabela += `
+      <tr>
+        <td>${obra.nome}</td>
+        <td>${obra.tipo}</td>
+        <td>
+          <img class="poster" src="${obra.urlPoster}" alt="${obra.nome}" />
+        </td>
+        <td class="sinopse">${obra.sinopse}</td>
+        <td>${obra.episodios}</td>
+        <td>${obra.nota}</td>
+        <td>
+          <ul class="generos">${generosHtml}</ul>
+        </td>
+        <td>
+          <button class="botao-editar" data-index="${i}">Editar</button>
+          <button class="botao-remover" data-index="${i}">Remover</button>
+        </td>
+      </tr>
+    `;
+  }
+
+  obrasTabela.innerHTML = htmlDaTabela;
+}
+
+function processarGeneros(textoGeneros) {
+  const generosArray = textoGeneros.split(",");
+  const generosFormatados = [];
+
+  for (let i = 0; i < generosArray.length; i++) {
+    const generoLimpo = generosArray[i].trim().toLowerCase();
+    const primeiraLetra = generoLimpo.charAt(0).toUpperCase();
+    const restoDoGenero = generoLimpo.slice(1);
+    generosFormatados.push(primeiraLetra + restoDoGenero);
+  }
+  return generosFormatados;
 }
 
 function cadastrar(event) {
@@ -153,6 +177,8 @@ function cadastrar(event) {
     episodios = document.getElementById("episodios").value;
   }
 
+  const generosTexto = document.getElementById("generos").value;
+
   const obra = {
     nome: formatarTitulo(document.getElementById("nome").value),
     tipo: tipo,
@@ -160,13 +186,7 @@ function cadastrar(event) {
     sinopse: document.getElementById("sinopse").value,
     episodios: episodios,
     nota: document.getElementById("nota").value,
-    generos: document
-      .getElementById("generos")
-      .value.split(", ")
-      .map((g) => {
-        const generoLimpo = g.trim().toLowerCase();
-        return generoLimpo.charAt(0).toUpperCase() + generoLimpo.slice(1);
-      }),
+    generos: processarGeneros(generosTexto),
   };
 
   obras.push(obra);
@@ -197,7 +217,6 @@ function abrirModalEdicao(index) {
   }
 
   formEdicao.dataset.editingIndex = index;
-
   window.location.hash = "editModal";
 }
 
@@ -225,6 +244,8 @@ function salvarEdicao(event) {
     episodios = document.getElementById("edit-episodios").value;
   }
 
+  const generosTexto = document.getElementById("edit-generos").value;
+
   const obraAtualizada = {
     nome: formatarTitulo(document.getElementById("edit-nome").value),
     tipo: tipo,
@@ -232,19 +253,11 @@ function salvarEdicao(event) {
     sinopse: document.getElementById("edit-sinopse").value,
     episodios: episodios,
     nota: document.getElementById("edit-nota").value,
-    generos: document
-      .getElementById("edit-generos")
-      .value.split(",")
-      .map((g) => {
-        const generoLimpo = g.trim().toLowerCase();
-        return generoLimpo.charAt(0).toUpperCase() + generoLimpo.slice(1);
-      }),
+    generos: processarGeneros(generosTexto),
   };
 
   obras[index] = obraAtualizada;
-
   atualizarLista();
-
   window.location.hash = "";
 }
 
@@ -252,11 +265,8 @@ tipoSelectCadastro.addEventListener("change", function () {
   const tipoSelecionado = this.value;
   if (tipoSelecionado === "Anime" || tipoSelecionado === "Série") {
     containerEpisodiosCadastro.classList.remove("escondido");
-    containerEpisodiosCadastro.style.maxHeight =
-      containerEpisodiosCadastro.scrollHeight + "px";
   } else {
     containerEpisodiosCadastro.classList.add("escondido");
-    containerEpisodiosCadastro.style.maxHeight = null;
   }
 });
 
