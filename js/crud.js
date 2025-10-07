@@ -226,12 +226,6 @@ function atualizarCampoDinamicoEdicao() {
 
   if (!tipoSelect || !containerEpisodios || !label || !input) return;
 
-  if (tipoSelect.value) {
-    containerEpisodios.classList.remove("escondido");
-  } else {
-    containerEpisodios.classList.add("escondido");
-  }
-
   if (tipoSelect.value === "Filme") {
     label.textContent = "Duração do Filme:";
     input.type = "text";

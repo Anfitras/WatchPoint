@@ -15,7 +15,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 5rem;
+  gap: 3rem;
   padding: 2rem 1.5rem;
 }
 
@@ -294,9 +294,4 @@ img.poster {
   img.poster {
     max-width: 5rem;
   }
-}
-
-/* Classe utilitária para esconder elementos via JS/HTML */
-.escondido {
-  display: none !important;
 }
