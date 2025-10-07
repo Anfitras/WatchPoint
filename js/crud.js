@@ -44,9 +44,6 @@ const formCadastro = document.getElementById("form-cadastro");
 const formEdicao = document.getElementById("form-edicao");
 const obrasTabela = document.getElementById("obrasTabela");
 const tipoSelectCadastro = document.getElementById("tipo");
-const containerEpisodiosCadastro = document.getElementById(
-  "container-episodios"
-);
 
 function formatarTitulo(titulo) {
   if (!titulo) return "";
@@ -172,7 +169,8 @@ function cadastrar(event) {
   const tipo = tipoSelectCadastro.value;
   let episodios;
   if (tipo === "Filme") {
-    episodios = "-";
+    // para filmes, permitir a duração livre (texto), se informado
+    episodios = document.getElementById("episodios").value.trim() || "-";
   } else {
     episodios = document.getElementById("episodios").value;
   }
@@ -192,15 +190,11 @@ function cadastrar(event) {
   obras.push(obra);
   atualizarLista();
   formCadastro.reset();
-  containerEpisodiosCadastro.classList.add("escondido");
   document.getElementById("nome").focus();
 }
 
 function abrirModalEdicao(index) {
   const obra = obras[index];
-  const containerEpisodiosEdicao = document.getElementById(
-    "container-episodios-edicao"
-  );
 
   document.getElementById("edit-nome").value = obra.nome;
   document.getElementById("edit-tipo").value = obra.tipo;
@@ -208,16 +202,51 @@ function abrirModalEdicao(index) {
   document.getElementById("edit-sinopse").value = obra.sinopse;
   document.getElementById("edit-nota").value = obra.nota;
   document.getElementById("edit-generos").value = obra.generos.join(", ");
-
-  if (obra.tipo === "Filme") {
-    containerEpisodiosEdicao.classList.add("escondido");
-  } else {
-    containerEpisodiosEdicao.classList.remove("escondido");
-    document.getElementById("edit-episodios").value = obra.episodios;
+  // preencher o campo de episódios/duração com o valor salvo
+  const editEpisodiosInput = document.getElementById("edit-episodios");
+  if (editEpisodiosInput) {
+    editEpisodiosInput.value =
+      obra.episodios === undefined ? "" : obra.episodios;
   }
 
   formEdicao.dataset.editingIndex = index;
+  // Ajusta o campo de episódios/duração no modal conforme o tipo atual
+  atualizarCampoDinamicoEdicao();
   window.location.hash = "editModal";
+}
+
+// Atualiza o campo de episódios/duração dentro do modal de edição
+function atualizarCampoDinamicoEdicao() {
+  const tipoSelect = document.getElementById("edit-tipo");
+  const containerEpisodios = document.getElementById(
+    "container-episodios-edicao"
+  );
+  const label = document.querySelector('label[for="edit-episodios"]');
+  const input = document.getElementById("edit-episodios");
+
+  if (!tipoSelect || !containerEpisodios || !label || !input) return;
+
+  if (tipoSelect.value) {
+    containerEpisodios.classList.remove("escondido");
+  } else {
+    containerEpisodios.classList.add("escondido");
+  }
+
+  if (tipoSelect.value === "Filme") {
+    label.textContent = "Duração do Filme:";
+    input.type = "text";
+    input.placeholder = "Ex: 2h 15m";
+  } else {
+    label.textContent = "Quantidade de Episódios:";
+    input.type = "number";
+    input.placeholder = "Ex: 24";
+  }
+}
+
+// Escuta mudanças no select do modal para atualizar dinamicamente
+const editTipoSelect = document.getElementById("edit-tipo");
+if (editTipoSelect) {
+  editTipoSelect.addEventListener("change", atualizarCampoDinamicoEdicao);
 }
 
 function salvarEdicao(event) {
@@ -239,7 +268,8 @@ function salvarEdicao(event) {
   let episodios;
 
   if (tipo === "Filme") {
-    episodios = "-";
+    // para filmes no modal de edição, ler a duração se fornecida
+    episodios = document.getElementById("edit-episodios").value.trim() || "-";
   } else {
     episodios = document.getElementById("edit-episodios").value;
   }
@@ -258,17 +288,10 @@ function salvarEdicao(event) {
 
   obras[index] = obraAtualizada;
   atualizarLista();
+  // ajustar visibilidade/placeholder do campo após reset
+  if (typeof atualizarCampoDinamico === "function") atualizarCampoDinamico();
   window.location.hash = "";
 }
-
-tipoSelectCadastro.addEventListener("change", function () {
-  const tipoSelecionado = this.value;
-  if (tipoSelecionado === "Anime" || tipoSelecionado === "Série") {
-    containerEpisodiosCadastro.classList.remove("escondido");
-  } else {
-    containerEpisodiosCadastro.classList.add("escondido");
-  }
-});
 
 formCadastro.addEventListener("submit", cadastrar);
 
