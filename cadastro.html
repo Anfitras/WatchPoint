@@ -68,16 +68,28 @@
     </header>
 
     <main id="janela-cadastro">
-      <form action="index.html" method="post" id="formulario">
+      <form id="formulario">
         <h2>Crie sua Conta!</h2>
+
+        <div class="campo-input">
+          <label for="nickname">Nickname:</label>
+          <input
+            type="text"
+            id="nickname"
+            name="nickname"
+            placeholder="Seu apelido"
+            required
+          />
+        </div>
 
         <div class="campo-input">
           <label for="email">E-mail:</label>
           <input
-            type="text"
+            type="email"
             id="email"
             name="email"
             placeholder="watch.point@gmail.com"
+            required
           />
         </div>
 
@@ -101,11 +113,6 @@
             placeholder="****"
             required
           />
-        </div>
-
-        <div class="campo-input">
-          <label for="nascimento">Data de nascimento:</label>
-          <input type="date" required />
         </div>
 
         <button type="submit">Cadastrar</button>

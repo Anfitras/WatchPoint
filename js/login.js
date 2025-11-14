@@ -1,11 +1,11 @@
 function validarEmail(email) {
-  const regex = /\S+@\S+\.\S+/;
+  var regex = /\S+@\S+\.\S+/;
   return regex.test(email);
 }
 
 function validarFormularioLogin(ids) {
-  const email = document.getElementById(ids.email).value.trim();
-  const senha = document.getElementById(ids.senha).value;
+  var email = document.getElementById(ids.email).value.trim();
+  var senha = document.getElementById(ids.senha).value;
 
   if (email === "" || !validarEmail(email)) {
     alert("Por favor, insira um e-mail válido.");
@@ -23,20 +23,15 @@ function validarFormularioLogin(ids) {
 function processarLogin(event) {
   event.preventDefault();
 
-  const idsLogin = {
-    email: "email",
-    senha: "senha",
-  };
+  var idsLogin = { email: "email", senha: "senha" };
 
-  if (!validarFormularioLogin(idsLogin)) {
-    return;
-  }
+  if (!validarFormularioLogin(idsLogin)) return;
 
   alert("Login bem-sucedido!");
   event.target.submit();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("formulario");
-  form.addEventListener("submit", processarLogin);
+  var form = document.getElementById("formulario");
+  if (form) form.addEventListener("submit", processarLogin);
 });

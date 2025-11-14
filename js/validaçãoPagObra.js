@@ -1,8 +1,8 @@
 function validarFormularioObra(ids) {
-  const comentario = document.getElementById(ids.comentario).value.trim();
-  const nota = document.getElementById(ids.nota).value;
-  const status = document.getElementById(ids.status).value;
-  const episodiosInput = document.getElementById(ids.episodios);
+  var comentario = document.getElementById(ids.comentario).value.trim();
+  var nota = document.getElementById(ids.nota).value;
+  var status = document.getElementById(ids.status).value;
+  var episodiosInput = document.getElementById(ids.episodios);
 
   if (comentario === "" || comentario.length < 10) {
     alert("Por favor, insira um comentário com ao menos 10 letras.");
@@ -20,8 +20,8 @@ function validarFormularioObra(ids) {
   }
 
   if (episodiosInput) {
-    const episodiosAssistidos = parseInt(episodiosInput.value, 10);
-    const maxEpisodios = parseInt(episodiosInput.dataset.totalEpisodios, 10);
+    var episodiosAssistidos = parseInt(episodiosInput.value, 10);
+    var maxEpisodios = parseInt(episodiosInput.dataset.totalEpisodios, 10);
 
     if (
       episodiosInput.value !== "" &&
@@ -30,7 +30,9 @@ function validarFormularioObra(ids) {
         episodiosAssistidos > maxEpisodios)
     ) {
       alert(
-        `O número de episódios assistidos deve ser entre 0 e ${maxEpisodios}.`
+        "O número de episódios assistidos deve ser entre 0 e " +
+          maxEpisodios +
+          "."
       );
       return false;
     }
@@ -42,7 +44,7 @@ function validarFormularioObra(ids) {
 function processarObra(event) {
   event.preventDefault();
 
-  const idsObra = {
+  var idsObra = {
     comentario: "comentario",
     nota: "nota",
     status: "status",
@@ -58,6 +60,6 @@ function processarObra(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("formulario");
-  form.addEventListener("submit", processarObra);
+  var form = document.getElementById("formulario");
+  if (form) form.addEventListener("submit", processarObra);
 });

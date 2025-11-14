@@ -115,7 +115,7 @@
               id="episodios"
               name="episodios"
               placeholder="Ex: 24"
-              style="width: 230px;"
+              style="width: 230px"
             />
           </div>
 
@@ -191,7 +191,7 @@
                   id="edit-episodios"
                   name="episodios"
                   min="1"
-                  style="width: 400px;"
+                  style="width: 400px"
                 />
               </div>
 
@@ -226,50 +226,5 @@
       </div>
     </footer>
     <script src="js/crud.js"></script>
-    <script>
-      function atualizarCampoDinamico() {
-        const tipoSelect = document.getElementById("tipo");
-        const containerEpisodios = document.getElementById(
-          "container-episodios"
-        );
-        const labelDinamica = document.querySelector('label[for="episodios"]');
-        const inputDinamico = document.getElementById("episodios");
-
-        // Se algum dos elementos não existir, aborta silenciosamente
-        if (
-          !tipoSelect ||
-          !labelDinamica ||
-          !inputDinamico ||
-          !containerEpisodios
-        )
-          return;
-
-        // Mostra o container apenas se houver um tipo selecionado
-        if (tipoSelect.value) {
-          containerEpisodios.classList.remove("escondido");
-        } else {
-          containerEpisodios.classList.add("escondido");
-        }
-
-        if (tipoSelect.value === "Filme") {
-          labelDinamica.textContent = "Duração do Filme:";
-          // Para permitir formatos como "2h 15m" usamos type text
-          inputDinamico.type = "text";
-          inputDinamico.placeholder = "Ex: 2h 15m";
-        } else {
-          labelDinamica.textContent = "Quantidade de Episódios:";
-          inputDinamico.type = "number";
-          inputDinamico.placeholder = "Ex: 24";
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        atualizarCampoDinamico();
-        const tipoSelect = document.getElementById("tipo");
-        if (tipoSelect) {
-          tipoSelect.addEventListener("change", atualizarCampoDinamico);
-        }
-      });
-    </script>
   </body>
 </html>

@@ -1,73 +1,51 @@
-const obras = [
-  {
-    nome: "Breaking Bad",
-    tipo: "Série",
-    urlPoster: "banners/series/breaking_bad.jpeg",
-    sinopse:
-      "Um professor de química diagnosticado com câncer de pulmão inoperável recorre à fabricação e venda de metanfetamina com um ex-aluno para garantir o futuro de sua família.",
-    episodios: 62,
-    nota: 9.5,
-    generos: [
-      "Humor Ácido",
-      "Crime",
-      "Épico",
-      "Drama Psicológico",
-      "Suspense Psicológico",
-      "Tragédia",
-      "Drama",
-      "Suspense",
-    ],
-  },
-  {
-    nome: "Attack On Titan",
-    tipo: "Anime",
-    urlPoster: "banners/animes/attack_on_titan.jpeg",
-    sinopse:
-      "Depois que sua cidade natal é destruída, o jovem Eren Jaeger jura limpar a Terra dos gigantes Titãs humanoides que levaram a humanidade à beira da extinção.",
-    episodios: 98,
-    nota: 9.1,
-    generos: [
-      "Ação Épica",
-      "Animação Adulta",
-      "Terror Corporal",
-      "Terror de Monstros",
-      "Shonen",
-      "Sobrevivência",
-      "Tragédia",
-      "Ação",
-      "Aventura",
-    ],
-  },
-];
+var obras = [];
 
-const formCadastro = document.getElementById("form-cadastro");
-const formEdicao = document.getElementById("form-edicao");
-const obrasTabela = document.getElementById("obrasTabela");
-const tipoSelectCadastro = document.getElementById("tipo");
+var formCadastro = document.getElementById("form-cadastro");
+var formEdicao = document.getElementById("form-edicao");
+var obrasTabela = document.getElementById("obrasTabela");
+var tipoSelectCadastro = document.getElementById("tipo");
 
 function formatarTitulo(titulo) {
   if (!titulo) return "";
 
-  const palavras = titulo.toLowerCase().split(" ");
-  const palavrasFormatadas = [];
+  var palavras = titulo.toLowerCase().split(" ");
+  var palavrasFormatadas = [];
 
-  for (let i = 0; i < palavras.length; i++) {
-    const palavra = palavras[i];
-    const primeiraLetra = palavra.charAt(0).toUpperCase();
-    const restoDaPalavra = palavra.slice(1);
+  for (var i = 0; i < palavras.length; i++) {
+    var palavra = palavras[i];
+    var primeiraLetra = palavra.charAt(0).toUpperCase();
+    var restoDaPalavra = palavra.slice(1);
     palavrasFormatadas.push(primeiraLetra + restoDaPalavra);
   }
 
   return palavrasFormatadas.join(" ");
 }
 
+function salvarNoStorage() {
+  try {
+    localStorage.setItem("obras", JSON.stringify(obras));
+  } catch (e) {}
+}
+
+function carregarDoStorage() {
+  try {
+    var raw = localStorage.getItem("obras");
+    if (raw) {
+      var parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        obras = parsed;
+      }
+    }
+  } catch (e) {}
+}
+
 function validarFormulario(ids) {
-  const nome = document.getElementById(ids.nome).value.trim();
-  const tipo = document.getElementById(ids.tipo).value;
-  const urlPoster = document.getElementById(ids.poster).value.trim();
-  const sinopse = document.getElementById(ids.sinopse).value.trim();
-  const nota = document.getElementById(ids.nota).value.trim();
-  const generos = document.getElementById(ids.generos).value.trim();
+  var nome = document.getElementById(ids.nome).value.trim();
+  var tipo = document.getElementById(ids.tipo).value;
+  var urlPoster = document.getElementById(ids.poster).value.trim();
+  var sinopse = document.getElementById(ids.sinopse).value.trim();
+  var nota = document.getElementById(ids.nota).value.trim();
+  var generos = document.getElementById(ids.generos).value.trim();
 
   if (nome === "" || nome.length < 2) {
     alert(
@@ -79,10 +57,27 @@ function validarFormulario(ids) {
     alert("Por favor, escolha um tipo para a obra.");
     return false;
   }
-  try {
-    new URL(urlPoster);
-  } catch (_) {
-    alert("Por favor, insira uma URL válida para o pôster.");
+  function isValidPosterPath(p) {
+    if (!p) return false;
+    var s = p.trim().toLowerCase();
+    if (s.length < 3) return false;
+    if (s.indexOf("http://") === 0 || s.indexOf("https://") === 0) return true;
+    var lastDot = s.lastIndexOf(".");
+    if (lastDot !== -1) {
+      var ext = s.substring(lastDot);
+      var exts = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"];
+      for (var ii = 0; ii < exts.length; ii++) {
+        if (ext === exts[ii]) return true;
+      }
+    }
+    if (s.indexOf("/") !== -1) return true;
+    return false;
+  }
+
+  if (!isValidPosterPath(urlPoster)) {
+    alert(
+      "Por favor, insira uma URL válida para o pôster (ex: https://... ou banners/arquivo.jpg)."
+    );
     return false;
   }
   if (sinopse === "" || sinopse.length < 10) {
@@ -90,7 +85,7 @@ function validarFormulario(ids) {
     return false;
   }
   if (nota !== "") {
-    const notaNum = parseFloat(nota);
+    var notaNum = parseFloat(nota);
     if (isNaN(notaNum) || notaNum < 0 || notaNum > 10) {
       alert("A nota deve ser um número entre 0 e 10.");
       return false;
@@ -105,48 +100,60 @@ function validarFormulario(ids) {
 }
 
 function atualizarLista() {
-  let htmlDaTabela = "";
+  var htmlDaTabela = "";
 
-  for (let i = 0; i < obras.length; i++) {
-    const obra = obras[i];
+  for (var i = 0; i < obras.length; i++) {
+    var obra = obras[i];
 
-    let generosHtml = "";
-    for (let j = 0; j < obra.generos.length; j++) {
-      generosHtml += `<li>${obra.generos[j]}</li>`;
+    var generosHtml = "";
+    for (var j = 0; j < (obra.generos ? obra.generos.length : 0); j++) {
+      generosHtml += "<li>" + obra.generos[j] + "</li>";
     }
 
-    htmlDaTabela += `
-      <tr>
-        <td>${obra.nome}</td>
-        <td>${obra.tipo}</td>
-        <td>
-          <img class="poster" src="${obra.urlPoster}" alt="${obra.nome}" />
-        </td>
-        <td class="sinopse">${obra.sinopse}</td>
-        <td>${obra.episodios}</td>
-        <td>${obra.nota}</td>
-        <td>
-          <ul class="generos">${generosHtml}</ul>
-        </td>
-        <td>
-          <button class="botao-editar" data-index="${i}">Editar</button>
-          <button class="botao-remover" data-index="${i}">Remover</button>
-        </td>
-      </tr>
-    `;
+    htmlDaTabela +=
+      "<tr>" +
+      "<td>" +
+      obra.nome +
+      "</td>" +
+      "<td>" +
+      obra.tipo +
+      "</td>" +
+      '<td><img class="poster" src="' +
+      obra.urlPoster +
+      '" alt="' +
+      obra.nome +
+      '" /></td>' +
+      '<td class="sinopse">' +
+      obra.sinopse +
+      "</td>" +
+      "<td>" +
+      (obra.episodios || "") +
+      "</td>" +
+      "<td>" +
+      (obra.nota || "") +
+      "</td>" +
+      '<td><ul class="generos">' +
+      generosHtml +
+      "</ul></td>" +
+      '<td><button class="botao-editar" data-index="' +
+      i +
+      '">Editar</button> <button class="botao-remover" data-index="' +
+      i +
+      '">Remover</button></td>' +
+      "</tr>";
   }
 
   obrasTabela.innerHTML = htmlDaTabela;
 }
 
 function processarGeneros(textoGeneros) {
-  const generosArray = textoGeneros.split(",");
-  const generosFormatados = [];
+  var generosArray = textoGeneros.split(",");
+  var generosFormatados = [];
 
-  for (let i = 0; i < generosArray.length; i++) {
-    const generoLimpo = generosArray[i].trim().toLowerCase();
-    const primeiraLetra = generoLimpo.charAt(0).toUpperCase();
-    const restoDoGenero = generoLimpo.slice(1);
+  for (var i = 0; i < generosArray.length; i++) {
+    var generoLimpo = generosArray[i].trim().toLowerCase();
+    var primeiraLetra = generoLimpo.charAt(0).toUpperCase();
+    var restoDoGenero = generoLimpo.slice(1);
     generosFormatados.push(primeiraLetra + restoDoGenero);
   }
   return generosFormatados;
@@ -154,7 +161,7 @@ function processarGeneros(textoGeneros) {
 
 function cadastrar(event) {
   event.preventDefault();
-  const idsCadastro = {
+  var idsCadastro = {
     nome: "nome",
     tipo: "tipo",
     poster: "poster",
@@ -162,22 +169,19 @@ function cadastrar(event) {
     nota: "nota",
     generos: "generos",
   };
-  if (!validarFormulario(idsCadastro)) {
-    return;
-  }
+  if (!validarFormulario(idsCadastro)) return;
 
-  const tipo = tipoSelectCadastro.value;
-  let episodios;
+  var tipo = tipoSelectCadastro.value;
+  var episodios;
   if (tipo === "Filme") {
-    // para filmes, permitir a duração livre (texto), se informado
     episodios = document.getElementById("episodios").value.trim() || "-";
   } else {
     episodios = document.getElementById("episodios").value;
   }
 
-  const generosTexto = document.getElementById("generos").value;
+  var generosTexto = document.getElementById("generos").value;
 
-  const obra = {
+  var obra = {
     nome: formatarTitulo(document.getElementById("nome").value),
     tipo: tipo,
     urlPoster: document.getElementById("poster").value,
@@ -188,44 +192,57 @@ function cadastrar(event) {
   };
 
   obras.push(obra);
+  salvarNoStorage();
   atualizarLista();
-  formCadastro.reset();
-  document.getElementById("nome").focus();
+  if (formCadastro && formCadastro.reset) formCadastro.reset();
+  var nomeEl = document.getElementById("nome");
+  if (nomeEl) nomeEl.focus();
 }
 
 function abrirModalEdicao(index) {
-  const obra = obras[index];
+  var obra = obras[index];
 
-  document.getElementById("edit-nome").value = obra.nome;
-  document.getElementById("edit-tipo").value = obra.tipo;
-  document.getElementById("edit-poster").value = obra.urlPoster;
-  document.getElementById("edit-sinopse").value = obra.sinopse;
-  document.getElementById("edit-nota").value = obra.nota;
-  document.getElementById("edit-generos").value = obra.generos.join(", ");
-  // preencher o campo de episódios/duração com o valor salvo
-  const editEpisodiosInput = document.getElementById("edit-episodios");
+  var en = document.getElementById("edit-nome");
+  if (en) en.value = obra.nome;
+  var et = document.getElementById("edit-tipo");
+  if (et) et.value = obra.tipo;
+  var ep = document.getElementById("edit-poster");
+  if (ep) ep.value = obra.urlPoster;
+  var es = document.getElementById("edit-sinopse");
+  if (es) es.value = obra.sinopse;
+  var enota = document.getElementById("edit-nota");
+  if (enota) enota.value = obra.nota;
+  var eg = document.getElementById("edit-generos");
+  if (eg) eg.value = (obra.generos || []).join(", ");
+  var editEpisodiosInput = document.getElementById("edit-episodios");
   if (editEpisodiosInput) {
     editEpisodiosInput.value =
       obra.episodios === undefined ? "" : obra.episodios;
   }
 
   formEdicao.dataset.editingIndex = index;
-  // Ajusta o campo de episódios/duração no modal conforme o tipo atual
   atualizarCampoDinamicoEdicao();
   window.location.hash = "editModal";
 }
 
-// Atualiza o campo de episódios/duração dentro do modal de edição
-function atualizarCampoDinamicoEdicao() {
-  const tipoSelect = document.getElementById("edit-tipo");
-  const containerEpisodios = document.getElementById(
-    "container-episodios-edicao"
-  );
-  const label = document.querySelector('label[for="edit-episodios"]');
-  const input = document.getElementById("edit-episodios");
-
-  if (!tipoSelect || !containerEpisodios || !label || !input) return;
-
+function atualizarCampoDinamico() {
+  var tipoSelect = document.getElementById("tipo");
+  var containerEpisodios = document.getElementById("container-episodios");
+  var label = null;
+  var labels = document.getElementsByTagName("label");
+  for (var k = 0; k < labels.length; k++) {
+    if (labels[k].htmlFor === "episodios") {
+      label = labels[k];
+      break;
+    }
+  }
+  var input = document.getElementById("episodios");
+  if (!tipoSelect || !label || !input || !containerEpisodios) return;
+  if (tipoSelect.value) {
+    containerEpisodios.style.display = "";
+  } else {
+    containerEpisodios.style.display = "none";
+  }
   if (tipoSelect.value === "Filme") {
     label.textContent = "Duração do Filme:";
     input.type = "text";
@@ -237,15 +254,40 @@ function atualizarCampoDinamicoEdicao() {
   }
 }
 
-// Escuta mudanças no select do modal para atualizar dinamicamente
-const editTipoSelect = document.getElementById("edit-tipo");
+function atualizarCampoDinamicoEdicao() {
+  var tipoSelect = document.getElementById("edit-tipo");
+  var containerEpisodios = document.getElementById(
+    "container-episodios-edicao"
+  );
+  var label = null;
+  var labels = document.getElementsByTagName("label");
+  for (var k = 0; k < labels.length; k++) {
+    if (labels[k].htmlFor === "edit-episodios") {
+      label = labels[k];
+      break;
+    }
+  }
+  var input = document.getElementById("edit-episodios");
+  if (!tipoSelect || !containerEpisodios || !label || !input) return;
+  if (tipoSelect.value === "Filme") {
+    label.textContent = "Duração do Filme:";
+    input.type = "text";
+    input.placeholder = "Ex: 2h 15m";
+  } else {
+    label.textContent = "Quantidade de Episódios:";
+    input.type = "number";
+    input.placeholder = "Ex: 24";
+  }
+}
+
+var editTipoSelect = document.getElementById("edit-tipo");
 if (editTipoSelect) {
   editTipoSelect.addEventListener("change", atualizarCampoDinamicoEdicao);
 }
 
 function salvarEdicao(event) {
   event.preventDefault();
-  const idsEdicao = {
+  var idsEdicao = {
     nome: "edit-nome",
     tipo: "edit-tipo",
     poster: "edit-poster",
@@ -253,24 +295,21 @@ function salvarEdicao(event) {
     nota: "edit-nota",
     generos: "edit-generos",
   };
-  if (!validarFormulario(idsEdicao)) {
-    return;
-  }
+  if (!validarFormulario(idsEdicao)) return;
 
-  const index = formEdicao.dataset.editingIndex;
-  const tipo = document.getElementById("edit-tipo").value;
-  let episodios;
+  var index = formEdicao.dataset.editingIndex;
+  var tipo = document.getElementById("edit-tipo").value;
+  var episodios;
 
   if (tipo === "Filme") {
-    // para filmes no modal de edição, ler a duração se fornecida
     episodios = document.getElementById("edit-episodios").value.trim() || "-";
   } else {
     episodios = document.getElementById("edit-episodios").value;
   }
 
-  const generosTexto = document.getElementById("edit-generos").value;
+  var generosTexto = document.getElementById("edit-generos").value;
 
-  const obraAtualizada = {
+  var obraAtualizada = {
     nome: formatarTitulo(document.getElementById("edit-nome").value),
     tipo: tipo,
     urlPoster: document.getElementById("edit-poster").value,
@@ -281,30 +320,41 @@ function salvarEdicao(event) {
   };
 
   obras[index] = obraAtualizada;
+  salvarNoStorage();
   atualizarLista();
-  // ajustar visibilidade/placeholder do campo após reset
   if (typeof atualizarCampoDinamico === "function") atualizarCampoDinamico();
   window.location.hash = "";
 }
 
-formCadastro.addEventListener("submit", cadastrar);
+if (formCadastro) formCadastro.addEventListener("submit", cadastrar);
 
-obrasTabela.addEventListener("click", function (event) {
-  if (event.target.classList.contains("botao-editar")) {
-    const index = event.target.dataset.index;
-    abrirModalEdicao(index);
-  } else if (event.target.classList.contains("botao-remover")) {
-    const index = event.target.dataset.index;
-    const confirmar = confirm(
-      `Tem certeza que deseja remover "${obras[index].nome}"?`
-    );
-    if (confirmar) {
-      obras.splice(index, 1);
-      atualizarLista();
+if (obrasTabela) {
+  obrasTabela.addEventListener("click", function (event) {
+    if (event.target.classList.contains("botao-editar")) {
+      var index = event.target.dataset.index;
+      abrirModalEdicao(index);
+    } else if (event.target.classList.contains("botao-remover")) {
+      var index = event.target.dataset.index;
+      var confirmar = confirm(
+        'Tem certeza que deseja remover "' + obras[index].nome + '"?'
+      );
+      if (confirmar) {
+        obras.splice(index, 1);
+        salvarNoStorage();
+        atualizarLista();
+      }
     }
+  });
+}
+
+if (formEdicao) formEdicao.addEventListener("submit", salvarEdicao);
+carregarDoStorage();
+atualizarLista();
+
+document.addEventListener("DOMContentLoaded", function () {
+  atualizarCampoDinamico();
+  var tipoSelect = document.getElementById("tipo");
+  if (tipoSelect) {
+    tipoSelect.addEventListener("change", atualizarCampoDinamico);
   }
 });
-
-formEdicao.addEventListener("submit", salvarEdicao);
-
-atualizarLista();

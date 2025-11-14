@@ -70,131 +70,24 @@
     <main>
       <h1 id="titulo_principal">BIBLIOTECA</h1>
       <section>
+        <p>
+          Para testar:
+          <a href="avaliacao_teste.html">Registrar avaliações (teste)</a>
+        </p>
         <table>
           <thead>
             <tr>
+              <th scope="col">Usuário</th>
+              <th scope="col">Obra</th>
               <th scope="col">Pôster</th>
-              <th scope="col">Nome</th>
               <th scope="col">Nota</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Status</th>
-              <th scope="col">Progresso</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td data-label="Pôster">
-                <a href="pag-series/breaking_bad.html"
-                  ><img
-                    class="poster"
-                    src="banners_edit/series/breaking_bad.jpeg"
-                    alt="Breaking Bad"
-                /></a>
-              </td>
-              <td data-label="Nome">Breaking Bad</td>
-              <td data-label="Nota" class="nota">10</td>
-              <td data-label="Tipo">Série</td>
-              <td data-label="Status">✔️ Assistido</td>
-              <td data-label="Progresso">
-                <div class="progresso">
-                  <span class="progresso-texto">62 / 62</span>
-                  <div class="barra-container">
-                    <div class="barra-progresso" style="width: 100%"></div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Pôster">
-                <a href="pag-filmes/o_cavaleiro_das_trevas.html"
-                  ><img
-                    class="poster"
-                    src="banners_edit/filmes/cavaleiro_das_trevas.jpeg"
-                    alt="Batman"
-                /></a>
-              </td>
-              <td data-label="Nome">Batman: O Cavaleiro das Trevas</td>
-              <td data-label="Nota" class="nota">8</td>
-              <td data-label="Tipo">Filme</td>
-              <td data-label="Status">✔️ Assistido</td>
-              <td data-label="Progresso">
-                <div class="progresso">
-                  <span class="progresso-texto">-</span>
-                  <div class="barra-container">
-                    <div class="barra-progresso" style="width: 100%"></div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Pôster">
-                <a href="pag-series/the_last_of_us.html"
-                  ><img
-                    class="poster"
-                    src="banners_edit/series/the_last_of_us.jpeg"
-                    alt="The Last of Us"
-                /></a>
-              </td>
-              <td data-label="Nome">The Last of Us</td>
-              <td data-label="Nota" class="nota">6</td>
-              <td data-label="Tipo">Série</td>
-              <td data-label="Status">❌ Desisti</td>
-              <td data-label="Progresso">
-                <div class="progresso">
-                  <span class="progresso-texto">10 / 17</span>
-                  <div class="barra-container">
-                    <div class="barra-progresso" style="width: 59%"></div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Pôster">
-                <a href="pag-animes/one_piece.html"
-                  ><img
-                    class="poster"
-                    src="banners_edit/animes/one_piece.jpeg"
-                    alt="One Piece"
-                /></a>
-              </td>
-              <td data-label="Nome">One Piece</td>
-              <td data-label="Nota" class="nota">-</td>
-              <td data-label="Tipo">Anime</td>
-              <td data-label="Status">📌 Planejo Assistir</td>
-              <td data-label="Progresso">
-                <div class="progresso">
-                  <span class="progresso-texto">0 / 1122+</span>
-                  <div class="barra-container">
-                    <div class="barra-progresso" style="width: 0%"></div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Pôster">
-                <a href="pag-series/dark.html"
-                  ><img
-                    class="poster"
-                    src="banners_edit/series/dark.jpeg"
-                    alt="Dark"
-                /></a>
-              </td>
-              <td data-label="Nome">Dark</td>
-              <td data-label="Nota" class="nota">7</td>
-              <td data-label="Tipo">Série</td>
-              <td data-label="Status">✔️ Assistido</td>
-              <td data-label="Progresso">
-                <div class="progresso">
-                  <span class="progresso-texto">26 / 26</span>
-                  <div class="barra-container">
-                    <div class="barra-progresso" style="width: 100%"></div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+          <tbody id="tbody-avaliacoes"></tbody>
         </table>
       </section>
+
+      <script src="js/biblioteca.js"></script>
     </main>
 
     <footer>

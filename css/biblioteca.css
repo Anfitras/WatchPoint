@@ -76,6 +76,40 @@ img.poster:hover {
   overflow: hidden;
 }
 
+.botao-editar {
+  padding: 0.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.375rem;
+  margin: 0.3em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.botao-editar {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.botao-editar:hover {
+  background-color: #1d4ed8;
+}
+
+.botao-remover-avaliacao {
+  padding: 0.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.375rem;
+  margin: 0.3em;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: var(--cor-principal);
+  color: #fff;
+}
+.botao-remover-avaliacao:hover {
+  background-color: #b91c1c;
+}
+
 .barra-progresso {
   background-color: var(--cor-principal);
   height: 100%;

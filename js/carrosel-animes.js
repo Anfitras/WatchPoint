@@ -1,4 +1,4 @@
-const animes = [
+var animes = [
   {
     titulo: "Attack on Titan",
     poster: "../banners/animes/attack_on_titan.jpeg",
@@ -25,11 +25,11 @@ const animes = [
   },
 ];
 
-let atual = 0;
-let carrosselIntervalo;
+var atual = 0;
+var carrosselIntervalo;
 
 function atualizarCarrossel() {
-  const anime = animes[atual];
+  var anime = animes[atual];
   document.getElementById("carrossel-bg").src = anime.fundo;
   document.getElementById("carrossel-poster").src = anime.poster;
   document.getElementById("carrossel-title").textContent = anime.titulo;

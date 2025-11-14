@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teste de Avaliação - WatchPoint</title>
+  </head>
+  <body>
+    <h1>Registrar Avaliação (Teste)</h1>
+
+    <section>
+      <h2>Selecione Usuário</h2>
+      <select id="selectUsuario"></select>
+      <button id="btnEditarUsuario" type="button">Editar Usuário</button>
+      <button id="btnRemoverUsuario" type="button">Remover Usuário</button>
+    </section>
+
+    <section>
+      <h2>Nova Avaliação</h2>
+      <form id="formAvaliacao">
+        <label for="selectObra">Obra:</label>
+        <select id="selectObra"></select>
+        <label for="nota">Nota (1-10):</label>
+        <input
+          type="number"
+          id="nota"
+          placeholder="Nota (1-10)"
+          min="1"
+          max="10"
+          required
+        />
+        <button type="submit">Salvar Avaliação</button>
+      </form>
+    </section>
+
+    <p><a href="biblioteca.html">Ir para Biblioteca</a></p>
+
+    <script src="js/cadastroAvaliacao.js"></script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-const filmes = [
+var filmes = [
   {
     titulo: "Senhor dos Anéis: O Retorno do Rei",
     poster: "../banners/filmes/retorno_do_rei.jpg",
@@ -25,11 +25,11 @@ const filmes = [
   },
 ];
 
-let atual = 0;
-let carrosselIntervalo;
+var atual = 0;
+var carrosselIntervalo;
 
 function atualizarCarrossel() {
-  const filme = filmes[atual];
+  var filme = filmes[atual];
   document.getElementById("carrossel-bg").src = filme.fundo;
   document.getElementById("carrossel-poster").src = filme.poster;
   document.getElementById("carrossel-title").textContent = filme.titulo;

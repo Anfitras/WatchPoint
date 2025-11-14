@@ -1,4 +1,4 @@
-const series = [
+var series = [
   {
     titulo: "Breaking Bad",
     poster: "../banners/series/breaking_bad.jpeg",
@@ -25,11 +25,11 @@ const series = [
   },
 ];
 
-let atual = 0;
-let carrosselIntervalo;
+var atual = 0;
+var carrosselIntervalo;
 
 function atualizarCarrossel() {
-  const serie = series[atual];
+  var serie = series[atual];
   document.getElementById("carrossel-bg").src = serie.fundo;
   document.getElementById("carrossel-poster").src = serie.poster;
   document.getElementById("carrossel-title").textContent = serie.titulo;
